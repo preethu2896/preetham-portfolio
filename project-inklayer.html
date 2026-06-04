@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inklayer — Modern Streetwear Brand Case Study | Preetham Bhandary</title>
+  <meta name="description"
+    content="Case study of Inklayer — a modern streetwear brand built on minimalist design, premium aesthetics, and digital-first customer experiences by Preetham Bhandary." />
+  <link rel="canonical" href="project-inklayer.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Inklayer — Modern Streetwear Brand | Preetham Bhandary" />
+  <meta property="og:description"
+    content="Brand identity, product design, digital storefront, and social media marketing for Inklayer — a modern streetwear label." />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Patrick+Hand&family=Rubik+Mono+One&family=JetBrains+Mono:wght@400;600&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+
+  <style>
+    /* ===== INKLAYER CASE STUDY PAGE STYLES ===== */
+
+    @keyframes pageIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    body {
+      animation: pageIn .4s ease both;
+    }
+
+    /* ---- Back link ---- */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 15px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 14px 6px 10px;
+      border: 1.5px solid var(--rule);
+      border-radius: 999px;
+      background: var(--paper);
+      transition: color .15s, background .15s, transform .15s;
+    }
+
+    .back-link:hover {
+      color: var(--ink);
+      background: var(--paper-2);
+      transform: translateX(-2px);
+    }
+
+    /* ---- Hero ---- */
+    .case-hero {
+      padding: 60px 0;
+      border-bottom: 2px solid var(--rule);
+      text-align: left;
+      position: relative;
+    }
+
+    .case-banner {
+      width: 100%;
+      height: clamp(240px, 42vw, 500px);
+      border: 3px solid var(--rule);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 32px;
+      background: var(--ink);
+      box-shadow: 5px 5px 0 var(--accent);
+      position: relative;
+    }
+
+    .case-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform .4s ease;
+    }
+
+    .case-banner:hover img {
+      transform: scale(1.02);
+    }
+
+    .case-banner::after {
+      content: "STREETWEAR";
+      position: absolute;
+      bottom: 18px;
+      right: 22px;
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 11px;
+      letter-spacing: .22em;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      padding: 4px 10px;
+      border-radius: 4px;
+      opacity: .8;
+      transform: rotate(-2deg);
+    }
+
+    .case-title {
+      font-size: clamp(36px, 7vw, 76px);
+      line-height: 1.0;
+      margin-bottom: 14px;
+    }
+
+    .handwritten-highlight {
+      font-family: 'Caveat', cursive;
+      font-size: 23px;
+      color: var(--accent);
+      line-height: 1.3;
+      margin-bottom: 20px;
+      transform: rotate(-0.4deg);
+      display: inline-block;
+    }
+
+    .tech-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 18px 0 24px;
+    }
+
+    .case-meta {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      margin-top: 48px;
+      align-items: start;
+    }
+
+    .case-meta h3 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 18px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    /* ---- Sections ---- */
+    .detail-section {
+      padding: 64px 0;
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .section-title {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: clamp(24px, 4vw, 36px);
+      line-height: 1.0;
+      margin-bottom: 20px;
+    }
+
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+    }
+
+    /* ---- Features grid ---- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .feature-card {
+      padding: 24px 20px;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .feature-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 4px 4px 0 var(--rule);
+    }
+
+    .feature-card .fc-icon {
+      color: var(--accent);
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .feature-card h4 {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .feature-card p {
+      font-family: 'Caveat', cursive;
+      font-size: 16px;
+      color: var(--muted);
+      flex: 1;
+    }
+
+    /* ---- Branding process ---- */
+    .brand-process-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .brand-step {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 20px 16px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: transform .15s ease, box-shadow .15s ease;
+      position: relative;
+    }
+
+    .brand-step:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 4px 4px 0 var(--rule);
+    }
+
+    .brand-step-num {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: .15em;
+      opacity: .8;
+    }
+
+    .brand-step-icon {
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    .brand-step h4 {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .brand-step p {
+      font-family: 'Caveat', cursive;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    /* ---- Gallery ---- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 32px;
+    }
+
+    .gallery-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .gallery-visual {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper-2);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .gallery-item:hover .gallery-visual {
+      transform: translate(-3px, -3px);
+      box-shadow: 4px 4px 0 var(--rule);
+    }
+
+    .gallery-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .3s ease;
+    }
+
+    .gallery-item:hover .gallery-visual img {
+      transform: scale(1.04);
+    }
+
+    .gallery-title {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .gallery-desc {
+      font-family: 'Caveat', cursive;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    /* ---- Tools grid ---- */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .tool-box {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 22px 14px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .tool-box:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 4px 4px 0 var(--rule);
+    }
+
+    .tool-box .tool-icon {
+      font-size: 28px;
+    }
+
+    .tool-box .tool-name {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .tool-box .tool-role {
+      font-family: 'Caveat', cursive;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ---- Challenges / Learnings / Future ---- */
+    .challenge-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .challenge-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px 18px;
+      border: 1.5px solid var(--rule);
+      border-radius: 8px 6px 9px 5px;
+      background: var(--paper);
+      align-items: flex-start;
+      transition: transform .13s ease, box-shadow .13s ease;
+    }
+
+    .challenge-item:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 3px 3px 0 var(--rule);
+    }
+
+    .challenge-num {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 15px;
+      color: var(--accent);
+      flex-shrink: 0;
+      min-width: 28px;
+    }
+
+    .challenge-item h4 {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .challenge-item p {
+      font-family: 'Caveat', cursive;
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    /* ---- Learnings pill list ---- */
+    .learnings-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .learning-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border: 2px solid var(--rule);
+      border-radius: 30px 26px 32px 28px / 28px 32px 26px 30px;
+      background: var(--paper);
+      font-family: 'Patrick Hand', cursive;
+      font-size: 16px;
+      transition: transform .13s ease, background .13s ease;
+    }
+
+    .learning-pill:hover {
+      transform: translate(-2px, -2px);
+      background: var(--paper-2);
+    }
+
+    .learning-pill .lp-icon {
+      font-size: 18px;
+    }
+
+    /* ---- Future plans ---- */
+    .enhancements-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .enhancement-box {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 22px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .enhancement-box:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 4px 4px 0 var(--rule);
+    }
+
+    .enh-icon {
+      font-size: 28px;
+    }
+
+    .enhancement-box h4 {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .enhancement-box p {
+      font-family: 'Caveat', cursive;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    /* ---- Brand vision band ---- */
+    .vision-band {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--paper);
+      padding: 48px 44px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vision-band::before {
+      content: "// INKLAYER · WEAR YOUR IDENTITY";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      opacity: .3;
+      position: absolute;
+      top: 14px;
+      left: 20px;
+    }
+
+    .vision-band h2 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: clamp(22px, 3.5vw, 42px);
+      line-height: .95;
+      margin-bottom: 14px;
+    }
+
+    .vision-band p {
+      font-family: 'Caveat', cursive;
+      font-size: 20px;
+      opacity: .85;
+      line-height: 1.4;
+    }
+
+    .vision-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .vision-stat {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border: 1px solid rgba(243, 238, 226, .15);
+      border-radius: 8px;
+      background: rgba(243, 238, 226, .05);
+    }
+
+    .vision-stat .vs-icon {
+      font-size: 22px;
+    }
+
+    .vision-stat p {
+      font-family: 'Caveat', cursive;
+      font-size: 17px;
+      opacity: .85;
+      margin: 0;
+    }
+
+    /* ---- CTA ---- */
+    .cta-box {
+      border: 3px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--paper);
+      padding: 52px 44px;
+      text-align: center;
+      margin: 64px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(-45deg,
+          transparent,
+          transparent 20px,
+          rgba(255, 91, 31, .04) 20px,
+          rgba(255, 91, 31, .04) 21px);
+      pointer-events: none;
+    }
+
+    .cta-box h2 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: clamp(26px, 4vw, 48px);
+      line-height: .95;
+      margin-bottom: 16px;
+    }
+
+    .cta-box p {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      opacity: .8;
+      margin-bottom: 28px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ---- Arch / Workflow containers ---- */
+    .arch-container {
+      overflow-x: auto;
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      background: var(--paper-2);
+      margin-top: 28px;
+    }
+
+    .arch-svg {
+      display: block;
+      min-width: 680px;
+    }
+
+    .workflow-container {
+      overflow-x: auto;
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 24px;
+      background: var(--paper);
+      margin-top: 24px;
+    }
+
+    /* ---- Tech stack ---- */
+    .tech-stack-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .stack-box {
+      padding: 20px 16px;
+    }
+
+    .stack-box h4 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 12px;
+      letter-spacing: .08em;
+      color: var(--accent);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .stack-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .stack-box li {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 15px;
+      padding: 5px 8px;
+      border-bottom: 1px dashed rgba(21, 19, 15, .12);
+    }
+
+    .stack-box li::before {
+      content: "→ ";
+      color: var(--accent);
+    }
+
+    /* ---- Feature list ---- */
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .feature-list li {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-bottom: 1px dashed rgba(21, 19, 15, .12);
+    }
+
+    /* ---- Results / Impact ---- */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .result-stat {
+      border: 1.5px solid var(--rule);
+      border-radius: 8px 6px 9px 5px;
+      background: var(--paper);
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform .13s ease;
+    }
+
+    .result-stat:hover {
+      transform: translate(-2px, -2px);
+    }
+
+    .rs-icon {
+      font-size: 22px;
+    }
+
+    .result-stat h4 {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .result-stat p {
+      font-family: 'Caveat', cursive;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    /* ---- Sticky sidebar nav ---- */
+    .page-nav {
+      position: sticky;
+      top: calc(var(--nav-h) + 16px);
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .page-nav-title {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 10px;
+      letter-spacing: .14em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1.5px dashed var(--rule);
+    }
+
+    .page-nav a {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      color: var(--muted);
+      transition: background .14s, color .14s;
+      text-decoration: none;
+    }
+
+    .page-nav a:hover {
+      background: var(--paper-2);
+      color: var(--ink);
+    }
+
+    /* ---- Color palette swatch ---- */
+    .palette-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .swatch-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid var(--rule);
+    }
+
+    .swatch-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ---- Progress bars ---- */
+    .progress-item {
+      margin-bottom: 14px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: var(--paper-2);
+      border: 1.5px solid var(--rule);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 999px;
+      transform-origin: left;
+      animation: growBar .8s ease forwards;
+      transform: scaleX(0);
+    }
+
+    @keyframes growBar {
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 1024px) {
+      .brand-process-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .enhancements-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .vision-band {
+        grid-template-columns: 1fr;
+        padding: 36px 28px;
+      }
+
+      .cta-box {
+        padding: 40px 28px;
+      }
+
+      .tech-stack-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .two-col-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-meta {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .brand-process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .enhancements-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-stack-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+      }
+
+      .hero-ctas .btn {
+        text-align: center;
+        justify-content: center;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cta-buttons .btn {
+        justify-content: center;
+      }
+    }
+    footer a {
+      transition: color 0.15s;
+    }
+    footer a:hover {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SVG Filters -->
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+    <defs>
+      <filter id="wobble">
+        <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="3" />
+        <feDisplacementMap in="SourceGraphic" scale="2" />
+      </filter>
+      <filter id="wobble-2">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="7" />
+        <feDisplacementMap in="SourceGraphic" scale="3" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation">
+    <div class="wrap nav-wrap">
+      <a href="index.html" class="nav-logo">PREETHAM <span>BHANDARY</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="index.html#toolkit">My Toolkit</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#achievements">Achievements</a></li>
+        <li><a href="index.html#education">Education</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn primary nav-cta sm">Contact Me →</a>
+      <button class="nav-toggle" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="toggleMenu()">Home</a>
+    <a href="index.html#about" onclick="toggleMenu()">About</a>
+    <a href="projects.html" onclick="toggleMenu()">Projects</a>
+    <a href="index.html#toolkit" onclick="toggleMenu()">My Toolkit</a>
+    <a href="index.html#experience" onclick="toggleMenu()">Experience</a>
+    <a href="index.html#achievements" onclick="toggleMenu()">Achievements</a>
+    <a href="index.html#education" onclick="toggleMenu()">Education</a>
+    <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- ===== HERO HEADER ===== -->
+  <header class="case-hero">
+    <div class="wrap">
+      <a href="projects.html" class="btn ghost" id="heroBackBtn">← Back to Projects</a>
+      <div class="section-tag" style="margin-top:14px">Case Study — Modern Streetwear Brand</div>
+
+      <!-- Hero Banner -->
+      <div class="case-banner wobble">
+        <img src="photos/inklayer-hero.png" alt="Inklayer Modern Streetwear Brand" />
+      </div>
+
+      <h1 class="case-title h-display">👕 Inklayer</h1>
+      <p class="handwritten-highlight">Modern Streetwear — Wear Your Identity</p>
+
+      <div class="tech-badges">
+        <span class="tag accent">Brand Identity</span>
+        <span class="tag accent">E-Commerce</span>
+        <span class="tag">Product Design</span>
+        <span class="tag">Social Media</span>
+        <span class="tag">Figma</span>
+        <span class="tag">Canva</span>
+        <span class="tag ink">Vercel</span>
+      </div>
+
+      <p class="h-hand" style="font-size:24px;line-height:1.35;max-width:860px;margin-bottom:28px">
+        Inklayer is a modern streetwear brand focused on minimalist design, premium aesthetics, and
+        digital-first customer experiences — built to reflect confidence, individuality, and modern youth culture.
+      </p>
+
+      <div class="hero-ctas" style="justify-content:flex-start;margin-bottom:0">
+        <a href="https://inklayer-l5qz.vercel.app" target="_blank" rel="noopener" class="btn primary"
+          id="heroWebsiteBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"
+            style="margin-right:4px">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+          Visit Website
+        </a>
+        <a href="https://www.instagram.com/inklayer.shop/" target="_blank" rel="noopener" class="btn"
+          id="heroInstagramBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="1.8" fill="none"
+            style="margin-right:4px">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+          </svg>
+          View Instagram
+        </a>
+        <a href="https://github.com/preethu2896/inklayer" target="_blank" rel="noopener" class="btn" id="heroGithubBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right:4px">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.43 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.22.694.825.576C20.565 21.795 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="case-meta">
+        <div>
+          <h3>About This Project</h3>
+          <p class="h-hand" style="font-size:19px;color:var(--muted)">
+            Inklayer is a fashion-forward streetwear label built from the ground up — from logo design and
+            brand identity to product creation and e-commerce. The brand merges minimalist aesthetics with
+            bold streetwear culture to create apparel that stands out in both digital and physical spaces.
+          </p>
+        </div>
+        <div>
+          <h3>Core Highlights</h3>
+          <p class="h-hand" style="font-size:19px;color:var(--muted)">
+            🎨 <strong>Brand-First:</strong> Every product decision starts with brand identity.<br />
+            🛒 <strong>Digital Storefront:</strong> Deployed on Vercel with e-commerce capabilities.<br />
+            📱 <strong>Social-First:</strong> Built to grow organically through content and community.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== OVERVIEW & PROBLEM ===== -->
+  <section class="detail-section" id="overview">
+    <div class="wrap">
+      <div class="two-col-grid reveal">
+        <div>
+          <div class="section-tag">01 — Overview</div>
+          <h2 class="section-title">Overview</h2>
+          <p class="h-hand" style="font-size:20px;line-height:1.45;margin-bottom:18px">
+            Inklayer is a modern streetwear brand that combines minimalist design with premium craftsmanship.
+            The goal is to create apparel that reflects the confidence, individuality, and style of modern
+            youth culture — starting digital-first and growing into a full lifestyle brand.
+          </p>
+          <p class="h-hand" style="font-size:20px;line-height:1.45">
+            From ideating the brand identity to shipping physical products and managing an online storefront,
+            Inklayer is a full-stack entrepreneurship project — covering design, marketing, e-commerce, and
+            content creation end-to-end.
+          </p>
+        </div>
+        <div>
+          <div class="box fill" style="padding:28px;margin-bottom:20px">
+            <h3 class="h-display" style="font-size:15px;margin-bottom:14px;color:var(--accent)">
+              The Problem
+            </h3>
+            <ul class="feature-list" style="margin-bottom:0">
+              <li style="font-size:16px;padding:7px 10px">
+                🏷️ <strong>Market Saturation:</strong> The fashion space is crowded with generic brands.
+              </li>
+              <li style="font-size:16px;padding:7px 10px">
+                💸 <strong>High Entry Costs:</strong> Starting a brand typically requires large upfront investment.
+              </li>
+              <li style="font-size:16px;padding:7px 10px">
+                📣 <strong>Discovery Problem:</strong> Getting noticed without a marketing budget is hard.
+              </li>
+            </ul>
+          </div>
+          <div class="box fill-accent" style="padding:22px">
+            <p class="h-hand" style="font-size:18px;font-weight:bold;margin-bottom:6px">The Solution</p>
+            <p class="h-hand" style="font-size:17px;line-height:1.35">
+              Build a brand that punches above its weight — through distinctive design, authentic storytelling,
+              smart digital marketing, and a community-first approach that turns customers into brand advocates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BRAND VISION ===== -->
+  <section class="detail-section" id="vision">
+    <div class="wrap">
+      <div class="section-tag">02 — Brand Vision</div>
+      <h2 class="section-title reveal">Brand Vision</h2>
+
+      <div class="vision-band wobble reveal">
+        <div>
+          <p class="h-mono" style="font-size:11px;opacity:.4;margin-bottom:14px;letter-spacing:.12em">
+            // THE MISSION STATEMENT
+          </p>
+          <h2>"Create apparel that reflects <span style="color:var(--accent)">confidence</span>,
+            individuality, and modern youth culture."</h2>
+          <p style="margin-top:18px">
+            Inklayer isn't just clothing — it's a statement. Every piece is designed with intention, built
+            to be worn by people who stand out without trying to.
+          </p>
+        </div>
+        <div class="vision-stats">
+          <div class="vision-stat">
+            <div class="vs-icon">🎨</div>
+            <p>Design-led brand identity that speaks before words do</p>
+          </div>
+          <div class="vision-stat">
+            <div class="vs-icon">📱</div>
+            <p>Digital-first strategy — social media before storefronts</p>
+          </div>
+          <div class="vision-stat">
+            <div class="vs-icon">🤝</div>
+            <p>Community-powered growth through authentic connection</p>
+          </div>
+          <div class="vision-stat">
+            <div class="vs-icon">⚡</div>
+            <p>Premium quality at accessible price points</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KEY FEATURES ===== -->
+  <section class="detail-section" id="features">
+    <div class="wrap">
+      <div class="section-tag">03 — Capabilities</div>
+      <h2 class="section-title reveal">Key Features</h2>
+      <p class="h-hand reveal" style="font-size:20px;color:var(--muted);max-width:750px;margin-bottom:8px">
+        Eight pillars that define Inklayer as a full-stack fashion brand venture.
+      </p>
+
+      <div class="features-grid">
+        <!-- F1 -->
+        <div class="box feature-card wobble reveal">
+          <div class="fc-icon">🎨</div>
+          <h4>Brand Identity Design</h4>
+          <p>Logo, color palette, typography, and brand guidelines that create a cohesive and memorable visual language.
+          </p>
+        </div>
+        <!-- F2 -->
+        <div class="box feature-card wobble reveal" style="transition-delay:.05s">
+          <div class="fc-icon">👕</div>
+          <h4>Product Design</h4>
+          <p>From sketch to final garment — every design is crafted with intention, balancing aesthetics and
+            wearability.</p>
+        </div>
+        <!-- F3 -->
+        <div class="box feature-card wobble reveal" style="transition-delay:.1s">
+          <div class="fc-icon">🛒</div>
+          <h4>Digital Storefront</h4>
+          <p>E-commerce website deployed on Vercel — optimized for conversion, mobile-first, and fast-loading.</p>
+        </div>
+        <!-- F4 -->
+        <div class="box feature-card wobble reveal" style="transition-delay:.15s">
+          <div class="fc-icon">📱</div>
+          <h4>Social Media Marketing</h4>
+          <p>Content strategy, reels, brand storytelling, and community engagement across Instagram and beyond.</p>
+        </div>
+        <!-- F5 -->
+        <div class="box feature-card wobble reveal" style="transition-delay:.2s">
+          <div class="fc-icon">⭐</div>
+          <h4>Customer Experience</h4>
+          <p>End-to-end experience design — from landing page through checkout to unboxing and post-purchase engagement.
+          </p>
+        </div>
+        <!-- F6 -->
+        <div class="box feature-card wobble reveal" style="transition-delay:.25s">
+          <div class="fc-icon">📦</div>
+          <h4>E-Commerce Operations</h4>
+          <p>Order management, inventory tracking, and fulfillment operations for smooth digital-to-physical delivery.
+          </p>
+        </div>
+        <!-- F7 -->
+        <div class="box feature-card wobble reveal" style="transition-delay:.3s">
+          <div class="fc-icon">🎬</div>
+          <h4>Content Creation</h4>
+          <p>Photo shoots, product mockups, marketing creatives, and brand storytelling assets across all platforms.</p>
+        </div>
+        <!-- F8 -->
+        <div class="box feature-card wobble reveal" style="transition-delay:.35s">
+          <div class="fc-icon">📈</div>
+          <h4>Brand Growth Strategy</h4>
+          <p>Long-term roadmap covering collaborations, exclusive drops, community building, and scaling operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BRANDING PROCESS ===== -->
+  <section class="detail-section" id="branding">
+    <div class="wrap">
+      <div class="section-tag">04 — Branding</div>
+      <h2 class="section-title reveal">Branding Process</h2>
+      <p class="h-hand reveal" style="font-size:20px;color:var(--muted);max-width:750px;margin-bottom:8px">
+        How Inklayer's visual identity was built — from blank page to complete brand system.
+      </p>
+
+      <div class="brand-process-grid">
+        <!-- Step 1 -->
+        <div class="brand-step wobble reveal">
+          <div class="brand-step-num">01</div>
+          <div class="brand-step-icon">✏️</div>
+          <h4>Logo Design</h4>
+          <p>Minimal wordmark with bold character — designed in Figma for versatility across print and digital.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="brand-step wobble reveal" style="transition-delay:.06s">
+          <div class="brand-step-num">02</div>
+          <div class="brand-step-icon">🔤</div>
+          <h4>Typography Selection</h4>
+          <p>Bold sans-serif headlines paired with clean body type — conveying strength and clarity.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="brand-step wobble reveal" style="transition-delay:.12s">
+          <div class="brand-step-num">03</div>
+          <div class="brand-step-icon">🎨</div>
+          <h4>Color Palette</h4>
+          <p>Black as the primary canvas with orange accents — commanding, energetic, unmistakable.</p>
+          <div class="palette-row" style="justify-content:center">
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#0d0d0d"></div>
+              <span class="swatch-name">#0D0D0D</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#ff5b1f"></div>
+              <span class="swatch-name">#FF5B1F</span>
+            </div>
+            <div class="swatch">
+              <div class="swatch-circle" style="background:#f5f5f5;border:1.5px solid #ccc"></div>
+              <span class="swatch-name">#F5F5F5</span>
+            </div>
+          </div>
+        </div>
+        <!-- Step 4 -->
+        <div class="brand-step wobble reveal" style="transition-delay:.18s">
+          <div class="brand-step-num">04</div>
+          <div class="brand-step-icon">📋</div>
+          <h4>Brand Guidelines</h4>
+          <p>Comprehensive style guide governing logo usage, spacing, tone of voice, and do's & don'ts.</p>
+        </div>
+        <!-- Step 5 -->
+        <div class="brand-step wobble reveal" style="transition-delay:.24s">
+          <div class="brand-step-num">05</div>
+          <div class="brand-step-icon">📦</div>
+          <h4>Packaging Concepts</h4>
+          <p>Branded packaging that extends the brand experience from screen to unboxing moment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== TOOLS USED ===== -->
+  <section class="detail-section" id="tools">
+    <div class="wrap">
+      <div class="section-tag">06 — Toolchain</div>
+      <h2 class="section-title reveal">Tools Used</h2>
+      <p class="h-hand reveal" style="font-size:20px;color:var(--muted);max-width:750px;margin-bottom:8px">
+        The full toolkit powering Inklayer — from design to deployment.
+      </p>
+
+      <div class="tools-grid">
+        <div class="tool-box wobble reveal">
+          <div class="tool-icon">🎨</div>
+          <div class="tool-name">Figma</div>
+          <div class="tool-role">Logo & Brand Identity</div>
+        </div>
+        <div class="tool-box wobble reveal" style="transition-delay:.05s">
+          <div class="tool-icon">🖼️</div>
+          <div class="tool-name">Canva</div>
+          <div class="tool-role">Marketing Creatives</div>
+        </div>
+        <div class="tool-box wobble reveal" style="transition-delay:.1s">
+          <div class="tool-icon">🖌️</div>
+          <div class="tool-name">Photoshop</div>
+          <div class="tool-role">Product Mockups</div>
+        </div>
+        <div class="tool-box wobble reveal" style="transition-delay:.15s">
+          <div class="tool-icon">📋</div>
+          <div class="tool-name">Notion</div>
+          <div class="tool-role">Brand Strategy & Ops</div>
+        </div>
+        <div class="tool-box wobble reveal" style="transition-delay:.2s">
+          <div class="tool-icon">📱</div>
+          <div class="tool-name">Instagram</div>
+          <div class="tool-role">Social Media Growth</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CHALLENGES & LEARNINGS ===== -->
+  <section class="detail-section" id="challenges">
+    <div class="wrap">
+      <div class="two-col-grid reveal">
+        <div>
+          <div class="section-tag">07 — Challenges</div>
+          <h2 class="section-title">Challenges</h2>
+          <p class="h-hand" style="font-size:20px;line-height:1.45;margin-bottom:22px">
+            Building a brand from scratch comes with its own set of real-world hurdles — here's what made Inklayer hard.
+          </p>
+
+          <div class="challenge-list">
+            <div class="challenge-item">
+              <div class="challenge-num">01</div>
+              <div>
+                <h4>Building a Brand From Scratch</h4>
+                <p>Creating a recognizable brand identity with zero existing equity — every element needed to be crafted
+                  with intention.</p>
+              </div>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-num">02</div>
+              <div>
+                <h4>Creating Unique Designs</h4>
+                <p>Standing out in an oversaturated streetwear market demanded a distinctive visual language that didn't
+                  follow trends.</p>
+              </div>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-num">03</div>
+              <div>
+                <h4>Marketing to a Target Audience</h4>
+                <p>Reaching and converting the right demographic organically — without a paid media budget — required
+                  creative storytelling.</p>
+              </div>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-num">04</div>
+              <div>
+                <h4>Managing Online Sales</h4>
+                <p>Handling orders, inventory, payments, and customer service as a solo founder while also creating
+                  content.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Learnings -->
+        <div>
+          <div class="section-tag">07 — Learnings</div>
+          <h2 class="section-title">Learnings</h2>
+          <p class="h-hand" style="font-size:20px;line-height:1.45;margin-bottom:22px">
+            Every challenge taught something new — here are the skills forged through building Inklayer.
+          </p>
+
+          <div class="learnings-grid">
+            <div class="learning-pill">
+              <span class="lp-icon">🎨</span>
+              Branding
+            </div>
+            <div class="learning-pill">
+              <span class="lp-icon">🚀</span>
+              Entrepreneurship
+            </div>
+            <div class="learning-pill">
+              <span class="lp-icon">💡</span>
+              Design Thinking
+            </div>
+            <div class="learning-pill">
+              <span class="lp-icon">📣</span>
+              Marketing Strategy
+            </div>
+            <div class="learning-pill">
+              <span class="lp-icon">🤝</span>
+              Customer Engagement
+            </div>
+            <div class="learning-pill">
+              <span class="lp-icon">🛒</span>
+              E-Commerce Ops
+            </div>
+            <div class="learning-pill">
+              <span class="lp-icon">📸</span>
+              Content Creation
+            </div>
+            <div class="learning-pill">
+              <span class="lp-icon">📊</span>
+              Social Analytics
+            </div>
+          </div>
+
+          <div class="box fill-accent" style="padding:22px;margin-top:24px">
+            <p class="h-hand" style="font-size:19px;font-weight:bold;margin-bottom:8px">
+              Biggest Takeaway
+            </p>
+            <p class="h-hand" style="font-size:17px;line-height:1.4">
+              A great brand is built through consistent action, not just great design. Showing up daily —
+              with content, with quality, with authenticity — is what separates brands that last from
+              those that don't.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FUTURE PLANS ===== -->
+  <section class="detail-section" id="future">
+    <div class="wrap">
+      <div class="section-tag">08 — Roadmap</div>
+      <h2 class="section-title reveal">Future Plans</h2>
+      <p class="h-hand reveal" style="font-size:20px;color:var(--muted);max-width:750px;margin-bottom:8px">
+        The next chapter for Inklayer — expanding reach, deepening community, and scaling the brand.
+      </p>
+
+      <div class="enhancements-grid">
+        <div class="enhancement-box reveal">
+          <span class="enh-icon">📦</span>
+          <h4>Expand Product Catalog</h4>
+          <p>Add hoodies, caps, accessories, and seasonal collections to grow beyond core tees.</p>
+        </div>
+        <div class="enhancement-box reveal" style="transition-delay:.06s">
+          <span class="enh-icon">⚡</span>
+          <h4>Launch Exclusive Collections</h4>
+          <p>Limited-edition drops with storytelling campaigns to create urgency and collector value.</p>
+        </div>
+        <div class="enhancement-box reveal" style="transition-delay:.12s">
+          <span class="enh-icon">🏘️</span>
+          <h4>Build Community</h4>
+          <p>Create a loyal brand community through Discord, UGC campaigns, and local pop-up events.</p>
+        </div>
+        <div class="enhancement-box reveal" style="transition-delay:.18s">
+          <span class="enh-icon">🌐</span>
+          <h4>Scale Online Presence</h4>
+          <p>Invest in SEO, influencer partnerships, and paid social to grow the brand's digital footprint.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="wrap">
+    <div class="cta-box wobble reveal">
+      <p class="h-mono" style="font-size:11px;opacity:.4;letter-spacing:.14em;margin-bottom:16px">
+        // EXPLORE THE BRAND
+      </p>
+      <h2>Interested in Inklayer?</h2>
+      <p class="h-hand">
+        Visit the live website, follow the brand on Instagram, or reach out to collaborate, stock, or chat.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="https://inklayer-l5qz.vercel.app" target="_blank" rel="noopener" class="btn primary"
+          id="ctaWebsiteBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"
+            style="margin-right:4px">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+          Visit Website
+        </a>
+        <a href="https://www.instagram.com/inklayer.shop/" target="_blank" rel="noopener"
+          style="background:rgba(243,238,226,.12);color:var(--paper);border-color:rgba(243,238,226,.3)" class="btn"
+          id="ctaInstagramBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="1.8" fill="none"
+            style="margin-right:4px">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+          </svg>
+          Follow on Instagram
+        </a>
+        <a href="mailto:preethambhandary385@gmail.com"
+          style="background:rgba(243,238,226,.12);color:var(--paper);border-color:rgba(243,238,226,.3)" class="btn"
+          id="ctaContactBtn">
+          Contact Me
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="border-top: 2px solid var(--rule); padding: 40px 0 30px; margin-top: 60px; background: var(--paper);">
+    <div class="wrap">
+      <!-- Hand-drawn divider line -->
+      <svg viewBox="0 0 1200 10" width="100%" height="10" fill="none" stroke="var(--rule)" stroke-width="2" stroke-linecap="round" style="margin-bottom: 30px; opacity: 0.8;">
+        <path d="M 5,5 Q 300,8 600,3 T 1195,6" />
+      </svg>
+
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px;">
+        <!-- Left: Logo & Tagline -->
+        <div style="max-width: 320px;">
+          <div class="foot-logo h-display" style="font-size: 20px; margin-bottom: 8px;">PREETHAM <span>BHANDARY</span></div>
+          <p class="h-hand" style="font-size: 18px; color: var(--muted);">Building the future, one project at a time.</p>
+        </div>
+
+        <!-- Middle: Navigation Links -->
+        <div>
+          <h5 class="h-display" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Navigation</h5>
+          <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 12px 20px; max-width: 450px; padding: 0;">
+            <li><a href="index.html#about" class="h-print" style="font-size: 16px;">About</a></li>
+            <li><a href="projects.html" class="h-print" style="font-size: 16px;">Projects</a></li>
+            <li><a href="index.html#toolkit" class="h-print" style="font-size: 16px;">My Toolkit</a></li>
+            <li><a href="index.html#experience" class="h-print" style="font-size: 16px;">Experience</a></li>
+            <li><a href="index.html#achievements" class="h-print" style="font-size: 16px;">Achievements</a></li>
+            <li><a href="index.html#education" class="h-print" style="font-size: 16px;">Education</a></li>
+            <li><a href="mailto:preethambhandary385@gmail.com" class="h-print" style="font-size: 16px;">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Right: Social Links -->
+        <div style="min-width: 150px;">
+          <h5 class="h-display" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Social Connect</h5>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; padding: 0;">
+            <li><a href="https://github.com/preethu2896" target="_blank" rel="noopener" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💻 GitHub</a></li>
+            <li><a href="https://linkedin.com/in/preethambhandary" target="_blank" rel="noopener" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💼 LinkedIn</a></li>
+            <li><a href="mailto:preethambhandary385@gmail.com" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">📧 Email</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright note -->
+      <div style="margin-top: 36px; padding-top: 18px; border-top: 1px dashed rgba(21,19,15,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-family: 'Patrick Hand', cursive; font-size: 14px; color: var(--muted);">
+        <span>© 2026 Preetham B. All Rights Reserved.</span>
+        <span class="h-hand" style="font-size: 15px;">made solo · shipped with ❤ from Bangalore</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+
+</html>

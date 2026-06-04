@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NavMind AI Case Study — Preetham Bhandary</title>
+  <meta name="description"
+    content="Detailed case study of NavMind AI — an Intelligent Traffic Prediction & Smart Route Recommendation System using FastAPI, React, and Machine Learning." />
+  <link rel="canonical" href="project-navmind.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NavMind AI Case Study — Preetham Bhandary" />
+  <meta property="og:description"
+    content="AI-powered real-time traffic analysis, route optimization, and predictive congestion forecasting." />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Patrick+Hand&family=Rubik+Mono+One&family=JetBrains+Mono:wght@400;600&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+
+  <style>
+    /* ===== CASE STUDY PAGE STYLES ===== */
+    .case-hero {
+      padding: 60px 0;
+      border-bottom: 2px solid var(--rule);
+      text-align: left;
+      position: relative;
+    }
+
+    .case-banner {
+      width: 100%;
+      height: clamp(240px, 40vw, 480px);
+      border: 3px solid var(--rule);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 32px;
+      background: var(--paper-2);
+      box-shadow: 4px 4px 0 var(--rule);
+    }
+
+    .case-banner img,
+    .case-banner svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .tech-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 18px 0 24px;
+    }
+
+    .case-title {
+      font-size: clamp(32px, 6vw, 68px);
+      line-height: 1.0;
+      margin-bottom: 16px;
+    }
+
+    .case-meta {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      margin-top: 48px;
+      align-items: start;
+    }
+
+    .case-meta h3 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 20px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    /* Grid Layouts for Sections */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+    }
+
+    .detail-section {
+      padding: 64px 0;
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .section-title {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: clamp(24px, 4vw, 36px);
+      line-height: 1.0;
+      margin-bottom: 20px;
+    }
+
+    .handwritten-highlight {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: var(--accent);
+      line-height: 1.3;
+      margin-bottom: 20px;
+      transform: rotate(-0.5deg);
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .feature-card {
+      padding: 24px 20px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .feature-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 4px 4px 0 var(--rule);
+    }
+
+    .feature-card svg {
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .feature-card h4 {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .feature-card p {
+      font-family: 'Caveat', cursive;
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.25;
+    }
+
+    /* Architecture SVG Diagram */
+    .arch-container {
+      background: var(--paper-2);
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-top: 28px;
+      overflow-x: auto;
+      display: flex;
+      justify-content: center;
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .arch-svg {
+      min-width: 800px;
+      height: auto;
+    }
+
+    /* Tech Stack */
+    .tech-stack-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .stack-box {
+      padding: 20px;
+    }
+
+    .stack-box h4 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 14px;
+      margin-bottom: 16px;
+      color: var(--accent);
+    }
+
+    .stack-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .stack-box li {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px dashed rgba(21, 19, 15, .1);
+      padding-bottom: 6px;
+    }
+
+    .stack-box li::before {
+      content: "✦";
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    /* Table styling */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      border: 1.5px solid var(--rule);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    .comparison-table th {
+      background: var(--paper-2);
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .comparison-table tr:hover {
+      background: rgba(255, 91, 31, .04);
+    }
+
+    /* ML Pipeline Flow */
+    .pipeline-container {
+      background: var(--paper-2);
+      border: 2px dashed var(--rule);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 24px;
+      overflow-x: auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .gallery-item {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 14px;
+      box-shadow: 3px 3px 0 var(--rule);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 6px 6px 0 var(--rule);
+    }
+
+    .gallery-visual {
+      background: var(--paper-2);
+      border: 1.5px dashed var(--rule);
+      border-radius: 4px;
+      aspect-ratio: 16/10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .gallery-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+
+    .gallery-item:hover .gallery-visual img {
+      transform: scale(1.04);
+    }
+
+    .gallery-title {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .gallery-desc {
+      font-family: 'Caveat', cursive;
+      font-size: 15px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Enhancements Grid */
+    .enhancements-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .enhancement-box {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 16px;
+      background: var(--paper);
+      box-shadow: 2.5px 2.5px 0 var(--rule);
+      text-align: center;
+    }
+
+    .enhancement-box h4 {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .enhancement-box p {
+      font-family: 'Caveat', cursive;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.15;
+    }
+
+    /* Getting started codes */
+    .code-console {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      margin-top: 14px;
+      position: relative;
+      overflow-x: auto;
+      border: 2px solid var(--rule);
+      box-shadow: 4px 4px 0 var(--accent);
+    }
+
+    .code-console::before {
+      content: "Terminal";
+      position: absolute;
+      top: 2px;
+      right: 12px;
+      font-size: 10px;
+      opacity: 0.4;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* CTA Section */
+    .cta-box {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--paper);
+      padding: 52px 48px;
+      text-align: center;
+      margin: 64px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: "// NAVMIND AI CASE STUDY";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      opacity: .35;
+      position: absolute;
+      top: 14px;
+      left: 20px;
+    }
+
+    .cta-box h2 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: clamp(26px, 4vw, 48px);
+      line-height: 1.0;
+      margin-bottom: 18px;
+    }
+
+    .cta-box p {
+      font-family: 'Caveat', cursive;
+      font-size: 21px;
+      opacity: .85;
+      max-width: 600px;
+      margin: 0 auto 28px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 1024px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tech-stack-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .enhancements-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .two-col-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .case-meta {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .enhancements-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .enhancements-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        padding: 36px 20px;
+      }
+    }
+    footer a {
+      transition: color 0.15s;
+    }
+    footer a:hover {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SVG Filters -->
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+    <defs>
+      <filter id="wobble">
+        <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="3" />
+        <feDisplacementMap in="SourceGraphic" scale="2" />
+      </filter>
+      <filter id="wobble-2">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="7" />
+        <feDisplacementMap in="SourceGraphic" scale="3" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation">
+    <div class="wrap nav-wrap">
+      <a href="index.html" class="nav-logo">PREETHAM <span>BHANDARY</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="index.html#toolkit">My Toolkit</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#achievements">Achievements</a></li>
+        <li><a href="index.html#education">Education</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn primary nav-cta sm">Contact Me →</a>
+      <button class="nav-toggle" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="toggleMenu()">Home</a>
+    <a href="index.html#about" onclick="toggleMenu()">About</a>
+    <a href="projects.html" onclick="toggleMenu()">Projects</a>
+    <a href="index.html#toolkit" onclick="toggleMenu()">My Toolkit</a>
+    <a href="index.html#experience" onclick="toggleMenu()">Experience</a>
+    <a href="index.html#achievements" onclick="toggleMenu()">Achievements</a>
+    <a href="index.html#education" onclick="toggleMenu()">Education</a>
+    <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- HERO SECTION -->
+  <header class="case-hero">
+    <div class="wrap">
+      <a href="projects.html" class="btn sm" style="margin-bottom: 24px;">← Back to Projects</a>
+      <div class="section-tag">Case Study — Smart Cities &amp; Transportation AI</div>
+
+      <!-- NavMind AI Hero Banner -->
+      <div class="case-banner wobble">
+        <img src="photos/navmind-3-1.png" alt="NavMind AI Route Analysis Interface" />
+      </div>
+
+      <h1 class="case-title h-display">🧠 NavMind AI</h1>
+      <p class="handwritten-highlight">Smart Traffic Intelligence Platform</p>
+
+      <div class="tech-badges">
+        <span class="tag accent">Python</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag accent">React 19</span>
+        <span class="tag">Vite 8</span>
+        <span class="tag ink">Gemini AI</span>
+      </div>
+
+      <p class="h-hand" style="font-size: 24px; line-height: 1.35; max-width: 850px; margin-bottom: 28px;">
+        An AI-powered real-time traffic analysis, route optimization, and predictive congestion forecasting system using
+        Scikit-learn ensembles, TomTom APIs, and Explainable AI (XAI) powered by Google Gemini.
+      </p>
+
+      <div class="hero-ctas" style="justify-content: flex-start; margin-bottom: 0;">
+        <a href="https://github.com/preethu2896/NavMind-AI" target="_blank" rel="noopener" class="btn primary">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="margin-right: 4px;">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.43 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.22.694.825.576C20.565 21.795 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub Repository
+        </a>
+        <a href="#gallery" class="btn">View UI Screenshots</a>
+      </div>
+
+      <div class="case-meta">
+        <div>
+          <h3>Development context</h3>
+          <p class="h-hand" style="font-size: 19px; color: var(--muted)">
+            NavMind AI was developed as a smart routing platform during an internship at <strong>Inventeron
+              Technologies</strong>. Built by <strong>Preetham Bhandary</strong> and <strong>Sanjana A Padukone</strong>
+            to demonstrate machine learning applications in modern city transportation systems.
+          </p>
+        </div>
+        <div>
+          <h3>TomTom &amp; Gemini Integration</h3>
+          <p class="h-hand" style="font-size: 19px; color: var(--muted)">
+            🔮 <strong>Smart Departure:</strong> 12-hour forecasting curves.<br />
+            🧠 <strong>XAI Explanations:</strong> Gemini AI describes routing decisions.<br />
+            🎙️ <strong>Voice Assistant:</strong> Chat interface using speech recognition.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- OVERVIEW & PROBLEM STATEMENT -->
+  <section class="detail-section" id="problem">
+    <div class="wrap">
+      <div class="two-col-grid reveal">
+        <div>
+          <h2 class="section-title">Overview</h2>
+          <p class="h-hand" style="font-size: 20px; line-height: 1.45; margin-bottom: 18px;">
+            Urban traffic congestion causes huge delays, fuel wastage, and massive travel uncertainties. While systems
+            like Google Maps react to congestion, they lack predictive foresight.
+          </p>
+          <p class="h-hand" style="font-size: 20px; line-height: 1.45;">
+            <strong>NavMind AI</strong> solves this by predicting traffic flows before they build up. By analyzing
+            historical databases, weather trends, active incidents, and live TomTom data streams, the ML models forecast
+            congestion levels over a 12-hour window. This allows travelers to plan departures dynamically and take
+            optimal paths.
+          </p>
+        </div>
+        <div class="box fill" style="padding: 28px;">
+          <h3 class="h-display" style="font-size: 15px; margin-bottom: 14px; color: var(--accent);">Urban Congestion
+            Challenges</h3>
+          <ul class="feature-list" style="margin-bottom: 0;">
+            <li style="font-size: 16px; padding: 6px 10px;">🚗 <strong>Reactive Routing:</strong> Old systems route cars
+              into traffic that is already forming.</li>
+            <li style="font-size: 16px; padding: 6px 10px;">🌦️ <strong>Weather Ignorance:</strong> Rain and storms
+              decrease speeds by 30%, but route planners ignore it.</li>
+            <li style="font-size: 16px; padding: 6px 10px;">🤯 <strong>Alert Fatigue:</strong> Users get raw warnings
+              without clear reasons why a route was picked.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION SECTION -->
+  <section class="detail-section" id="solution">
+    <div class="wrap">
+      <div class="reveal">
+        <h2 class="section-title">The Solution: NavMind AI vs Reactive Nav</h2>
+        <p class="h-hand" style="font-size: 20px; line-height: 1.45; margin-bottom: 24px;">
+          NavMind AI combines classical routing algorithms with ensemble classifiers and LLMs to create a transparent,
+          predictive navigation layer.
+        </p>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>🗺️ Standard Routing Systems</th>
+              <th>🧠 NavMind AI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Congestion Insight</strong></td>
+              <td>Reactive (spots traffic after it accumulates)</td>
+              <td>Predictive (forecasts congestion 12 hours ahead)</td>
+            </tr>
+            <tr>
+              <td><strong>Environmental Context</strong></td>
+              <td>❌ Ignores rain, wind, and visibility indexes</td>
+              <td>✅ Intersects real-time weather radar data</td>
+            </tr>
+            <tr>
+              <td><strong>AI Interpretability (XAI)</strong></td>
+              <td>❌ Black box algorithms with zero explanation</td>
+              <td>✅ Gemini AI outputs explanations for route choices</td>
+            </tr>
+            <tr>
+              <td><strong>Interaction Mode</strong></td>
+              <td>⌨️ Manual typing and touchscreen inputs only</td>
+              <td>🎙️ Hands-free continuous-listening voice agent</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY FEATURES SECTION -->
+  <section class="detail-section" id="features">
+    <div class="wrap">
+      <div class="section-tag">Key Highlights</div>
+      <h2 class="section-title reveal">Core Capabilities</h2>
+
+      <div class="features-grid">
+        <!-- F1 -->
+        <div class="box feature-card wobble reveal">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+          <h4>Traffic Congestion Prediction</h4>
+          <p>Ensemble models classify street conditions into light, moderate, or heavy bottlenecks.</p>
+        </div>
+        <!-- F2 -->
+        <div class="box feature-card wobble reveal" style="transition-delay: .05s">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <polygon points="3 11 22 2 13 21 11 13 3 11" />
+          </svg>
+          <h4>Smart Route Recommendation</h4>
+          <p>TomTom &amp; OpenRouteService route profiles tailored for cars, bikes, or pedestrians.</p>
+        </div>
+        <!-- F3 -->
+        <div class="box feature-card wobble reveal" style="transition-delay: .1s">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+          <h4>Smart Departure Planner</h4>
+          <p>A 12-hour forecasting chart detailing the absolute best time to leave to avoid traffic.</p>
+        </div>
+        <!-- F4 -->
+        <div class="box feature-card wobble reveal" style="transition-delay: .15s">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          <h4>XAI Explainable AI</h4>
+          <p>Google Gemini integration outputs plain-language explanations of route choices and risks.</p>
+        </div>
+        <!-- F5 -->
+        <div class="box feature-card wobble reveal" style="transition-delay: .2s">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <path
+              d="M12 1a11 11 0 0 0-11 11 11.02 11.02 0 0 0 3.33 7.8A11.96 11.96 0 0 0 12 23a11.96 11.96 0 0 0 7.67-3.2A11.02 11.02 0 0 0 23 12 11 11 0 0 0 12 1zm0 4a7 7 0 0 1 7 7c0 1.93-.78 3.68-2.05 4.95A6.97 6.97 0 0 1 12 19a6.97 6.97 0 0 1-4.95-2.05A6.97 6.97 0 0 1 5 12a7 7 0 0 1 7-7z" />
+          </svg>
+          <h4>Weather-Based Analysis</h4>
+          <p>Pulls meteorological variables via OpenWeather API to estimate rain impact on vehicle speeds.</p>
+        </div>
+        <!-- F6 -->
+        <div class="box feature-card wobble reveal" style="transition-delay: .25s">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+          <h4>Conversational Assistant</h4>
+          <p>Continuous-listening voice agent coordinates destination inputs and answers queries hands-free.</p>
+        </div>
+        <!-- F7 -->
+        <div class="box feature-card wobble reveal" style="transition-delay: .3s">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <h4>Live Incidents radar</h4>
+          <p>Visualizes collisions, constructions, and hazards on interactive map sheets.</p>
+        </div>
+        <!-- F8 -->
+        <div class="box feature-card wobble reveal" style="transition-delay: .35s">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <path d="M22.4 11.2a11.2 11.2 0 1 1-11.2-11.2 11.2 11.2 0 0 1 11.2 11.2z" />
+          </svg>
+          <h4>Eco-Friendly Routing</h4>
+          <p>Estimates and displays CO2 emissions for each path, guiding eco-friendly route profiles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE SECTION -->
+  <section class="detail-section" id="architecture">
+    <div class="wrap">
+      <div class="section-tag">System Design</div>
+      <h2 class="section-title reveal">Architecture Flow</h2>
+      <p class="h-hand" style="font-size: 20px; color: var(--muted); max-width: 750px; margin-bottom: 24px;">
+        Visualizing the flow of data from the React front-end down to external routing APIs and ML prediction models.
+      </p>
+
+      <div class="arch-container reveal">
+        <!-- SVG Architecture flow -->
+        <svg viewBox="0 0 880 200" class="arch-svg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#15130f" />
+            </marker>
+          </defs>
+
+          <!-- Column 1: Dashboard -->
+          <rect x="20" y="55" width="105" height="75" rx="6" fill="#faf7f0" stroke="#15130f" stroke-width="2.5" />
+          <text x="72.5" y="90" font-family="'Patrick Hand', cursive" font-size="15" font-weight="bold"
+            text-anchor="middle" fill="#15130f">React Dashboard</text>
+          <text x="72.5" y="108" font-family="'Caveat', cursive" font-size="13" text-anchor="middle"
+            fill="#8a8678">Leaflet Map Tiles</text>
+
+          <line x1="125" y1="92" x2="165" y2="92" stroke="#15130f" stroke-width="2" marker-end="url(#arrow)" />
+
+          <!-- Column 2: FastAPI Backend -->
+          <rect x="175" y="50" width="130" height="85" rx="6" fill="#f3eee2" stroke="#15130f" stroke-width="2.5" />
+          <text x="240" y="85" font-family="'Patrick Hand', cursive" font-size="15" font-weight="bold"
+            text-anchor="middle" fill="#15130f">FastAPI Backend</text>
+          <text x="240" y="103" font-family="'Caveat', cursive" font-size="13" text-anchor="middle"
+            fill="#8a8678">Endpoint Routing</text>
+          <text x="240" y="118" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle"
+            fill="#ff5b1f">Python 3.10</text>
+
+          <line x1="305" y1="92" x2="345" y2="92" stroke="#15130f" stroke-width="2" marker-end="url(#arrow)" />
+
+          <!-- Column 3: ML Engine & APIs -->
+          <rect x="355" y="45" width="140" height="95" rx="6" fill="#faf7f0" stroke="#15130f" stroke-width="2.5" />
+          <text x="425" y="75" font-family="'Patrick Hand', cursive" font-size="15" font-weight="bold"
+            text-anchor="middle" fill="#15130f">ML Engine &amp; APIs</text>
+          <text x="425" y="93" font-family="'Caveat', cursive" font-size="12" text-anchor="middle" fill="#8a8678">TomTom
+            / Weather APIs</text>
+          <text x="425" y="107" font-family="'Caveat', cursive" font-size="12" text-anchor="middle"
+            fill="#8a8678">RandomForest pkl</text>
+          <text x="425" y="122" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle"
+            fill="#ff5b1f">Gemini XAI Service</text>
+
+          <line x1="495" y1="92" x2="535" y2="92" stroke="#15130f" stroke-width="2" marker-end="url(#arrow)" />
+
+          <!-- Column 4: Routing System -->
+          <rect x="545" y="50" width="130" height="85" rx="6" fill="#faf7f0" stroke="#15130f" stroke-width="2.5" />
+          <text x="610" y="85" font-family="'Patrick Hand', cursive" font-size="15" font-weight="bold"
+            text-anchor="middle" fill="#15130f">Recommendation Sys</text>
+          <text x="610" y="103" font-family="'Caveat', cursive" font-size="13" text-anchor="middle"
+            fill="#8a8678">Optimal Route Calc</text>
+          <text x="610" y="118" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle"
+            fill="#ff5b1f">Decision Engine</text>
+
+          <line x1="675" y1="92" x2="725" y2="92" stroke="#15130f" stroke-width="2" marker-end="url(#arrow)" />
+
+          <!-- Column 5: Results -->
+          <rect x="735" y="55" width="120" height="75" rx="6" fill="#ff5b1f" fill-opacity="0.15" stroke="#15130f"
+            stroke-width="2.5" />
+          <text x="795" y="90" font-family="'Patrick Hand', cursive" font-size="15" font-weight="bold"
+            text-anchor="middle" fill="#15130f">Dashboard Results</text>
+          <text x="795" y="108" font-family="'Caveat', cursive" font-size="13" text-anchor="middle"
+            fill="#8a8678">Interactive Map Render</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ML PIPELINE SECTION -->
+  <section class="detail-section" id="pipeline">
+    <div class="wrap">
+      <div class="section-tag">Algorithm Workflow</div>
+      <h2 class="section-title reveal">Machine Learning Pipeline</h2>
+      <p class="h-hand" style="font-size: 20px; color: var(--muted); max-width: 750px; margin-bottom: 24px;">
+        Steps to ingest, train, and select traffic prediction models within the backend pipeline.
+      </p>
+
+      <div class="pipeline-container reveal">
+        <!-- SVG Pipeline flowchart -->
+        <svg viewBox="0 0 940 100" style="min-width: 900px; height: auto;" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5"
+              orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#15130f" />
+            </marker>
+          </defs>
+
+          <!-- Step 1: Data collection -->
+          <rect x="5" y="25" width="95" height="50" rx="4" fill="#faf7f0" stroke="#15130f" stroke-width="2" />
+          <text x="52.5" y="50" font-family="'Patrick Hand', cursive" font-size="12" font-weight="bold"
+            text-anchor="middle">Data Collection</text>
+          <text x="52.5" y="65" font-family="'Caveat', cursive" font-size="10" text-anchor="middle"
+            fill="#8a8678">TomTom / Weather APIs</text>
+
+          <line x1="100" y1="50" x2="130" y2="50" stroke="#15130f" stroke-width="1.5" marker-end="url(#arrow2)" />
+
+          <!-- Step 2: Data cleaning -->
+          <rect x="140" y="25" width="95" height="50" rx="4" fill="#faf7f0" stroke="#15130f" stroke-width="2" />
+          <text x="187.5" y="50" font-family="'Patrick Hand', cursive" font-size="12" font-weight="bold"
+            text-anchor="middle">Data Cleaning</text>
+          <text x="187.5" y="65" font-family="'Caveat', cursive" font-size="10" text-anchor="middle"
+            fill="#8a8678">Handle nulls &amp; outliers</text>
+
+          <line x1="235" y1="50" x2="265" y2="50" stroke="#15130f" stroke-width="1.5" marker-end="url(#arrow2)" />
+
+          <!-- Step 3: Feature Eng -->
+          <rect x="275" y="25" width="105" height="50" rx="4" fill="#faf7f0" stroke="#15130f" stroke-width="2" />
+          <text x="327.5" y="50" font-family="'Patrick Hand', cursive" font-size="12" font-weight="bold"
+            text-anchor="middle">Feature Engineering</text>
+          <text x="327.5" y="65" font-family="'Caveat', cursive" font-size="10" text-anchor="middle"
+            fill="#8a8678">Weather index extracts</text>
+
+          <line x1="380" y1="50" x2="410" y2="50" stroke="#15130f" stroke-width="1.5" marker-end="url(#arrow2)" />
+
+          <!-- Step 4: Model Training -->
+          <rect x="420" y="25" width="95" height="50" rx="4" fill="#faf7f0" stroke="#15130f" stroke-width="2" />
+          <text x="467.5" y="50" font-family="'Patrick Hand', cursive" font-size="12" font-weight="bold"
+            text-anchor="middle">Model Training</text>
+          <text x="467.5" y="65" font-family="'Caveat', cursive" font-size="10" text-anchor="middle"
+            fill="#8a8678">Pre-train models</text>
+
+          <line x1="515" y1="50" x2="545" y2="50" stroke="#15130f" stroke-width="1.5" marker-end="url(#arrow2)" />
+
+          <!-- Step 5: Model Eval -->
+          <rect x="555" y="25" width="100" height="50" rx="4" fill="#faf7f0" stroke="#15130f" stroke-width="2" />
+          <text x="605" y="50" font-family="'Patrick Hand', cursive" font-size="12" font-weight="bold"
+            text-anchor="middle">Model Evaluation</text>
+          <text x="605" y="65" font-family="'Caveat', cursive" font-size="10" text-anchor="middle"
+            fill="#8a8678">Compare accuracy scores</text>
+
+          <line x1="655" y1="50" x2="685" y2="50" stroke="#15130f" stroke-width="1.5" marker-end="url(#arrow2)" />
+
+          <!-- Step 6: Prediction -->
+          <rect x="695" y="25" width="95" height="50" rx="4" fill="#faf7f0" stroke="#15130f" stroke-width="2" />
+          <text x="742.5" y="50" font-family="'Patrick Hand', cursive" font-size="12" font-weight="bold"
+            text-anchor="middle">Prediction</text>
+          <text x="742.5" y="65" font-family="'Caveat', cursive" font-size="10" text-anchor="middle"
+            fill="#8a8678">Triage street speeds</text>
+
+          <line x1="790" y1="50" x2="820" y2="50" stroke="#15130f" stroke-width="1.5" marker-end="url(#arrow2)" />
+
+          <!-- Step 7: Route Recommend -->
+          <rect x="830" y="25" width="105" height="50" rx="4" fill="#ff5b1f" fill-opacity="0.15" stroke="#15130f"
+            stroke-width="2" />
+          <text x="882.5" y="50" font-family="'Patrick Hand', cursive" font-size="12" font-weight="bold"
+            text-anchor="middle">Route Recommend</text>
+          <text x="882.5" y="65" font-family="'Caveat', cursive" font-size="9" text-anchor="middle" fill="#ff5b1f">ORS
+            Optimal selection</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY STACK -->
+  <section class="detail-section" id="techstack">
+    <div class="wrap">
+      <div class="section-tag">Specifications</div>
+      <h2 class="section-title reveal">Tech Stack</h2>
+
+      <div class="tech-stack-grid reveal">
+        <!-- Backend -->
+        <div class="box stack-box wobble">
+          <h4>Backend Server</h4>
+          <ul>
+            <li>FastAPI (Asynchronous REST framework)</li>
+            <li>Pydantic (Log schemas &amp; configs)</li>
+            <li>Uvicorn (High-concurrency server)</li>
+            <li>Python 3.10+</li>
+          </ul>
+        </div>
+        <!-- ML -->
+        <div class="box stack-box wobble">
+          <h4>Machine Learning</h4>
+          <ul>
+            <li>scikit-learn (Model Training)</li>
+            <li>Google Gemini AI (XAI explanations)</li>
+            <li>Pandas &amp; NumPy (Data manipulation)</li>
+            <li>Saved model artifacts (.pkl files)</li>
+          </ul>
+        </div>
+        <!-- Frontend -->
+        <div class="box stack-box wobble">
+          <h4>Frontend Core</h4>
+          <ul>
+            <li>React 19 (Component models)</li>
+            <li>Vite 8 (Superfast build tool)</li>
+            <li>Leaflet &amp; React-Leaflet (Mapping)</li>
+            <li>Recharts (Departure forecastings)</li>
+            <li>Lucide React (Icon sets)</li>
+          </ul>
+        </div>
+        <!-- External APIs -->
+        <div class="box stack-box wobble">
+          <h4>Integrations</h4>
+          <ul>
+            <li>TomTom Traffic API (Congestions)</li>
+            <li>OpenRouteService (Optimal routes)</li>
+            <li>OpenWeatherMap API (Weather radar)</li>
+            <li>Google Maps (Tiles optional)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GETTING STARTED -->
+  <section class="detail-section" id="setup">
+    <div class="wrap">
+      <div class="section-tag">Local Setup</div>
+      <h2 class="section-title reveal">Getting Started</h2>
+
+      <div class="reveal">
+        <h3 class="h-display" style="font-size: 14px; margin-top: 24px;">1️⃣ Clone the Repository</h3>
+        <div class="code-console">
+          git clone https://github.com/preethu2896/NavMind-AI.git
+          cd NavMind-AI
+        </div>
+
+        <h3 class="h-display" style="font-size: 14px; margin-top: 28px;">2️⃣ Backend &amp; Env Setup</h3>
+        <div class="code-console">
+          # Install requirements
+          pip install -r requirements.txt
+
+          # Copy env template
+          cp .env.example .env
+        </div>
+        <p class="h-hand" style="font-size: 18px; margin-top: 8px; color: var(--muted)">
+          Edit <code>.env</code> file and configure <code>GOOGLE_MAPS_API_KEY</code>, <code>OPENWEATHER_API_KEY</code>,
+          <code>ORS_API_KEY</code>, <code>TOMTOM_API_KEY</code>, and <code>GEMINI_API_KEY</code>.
+        </p>
+
+        <h3 class="h-display" style="font-size: 14px; margin-top: 28px;">3️⃣ Run the Application</h3>
+        <div class="code-console">
+          # Start Backend
+          python main.py
+
+          # Start Frontend (in /frontend directory)
+          cd frontend
+          npm install
+          npm run dev
+        </div>
+        <p class="h-hand" style="font-size: 18px; margin-top: 8px; color: var(--muted)">
+          Server will run at <code>http://localhost:8000</code> and Frontend will run at
+          <code>http://localhost:5173</code>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="detail-section" id="gallery">
+    <div class="wrap">
+      <div class="section-tag">Visuals</div>
+      <h2 class="section-title reveal">Project Gallery &amp; Interfaces</h2>
+      <p class="h-hand" style="font-size: 20px; color: var(--muted); max-width: 750px; margin-bottom: 24px;">
+        Screenshots of NavMind AI's live interfaces showcasing route recommendations, predictions, forecasts, and chat agents.
+      </p>
+
+      <div class="gallery-grid">
+        <!-- Item 1 -->
+        <div class="gallery-item reveal">
+          <div class="gallery-visual wobble">
+            <img src="photos/navmind-3-1.png" alt="NavMind AI Route Analysis Interface" />
+          </div>
+          <div class="gallery-title">Route Analysis Interface</div>
+          <div class="gallery-desc">Main dashboard interface with inputs for current location, destination search, and transportation profiles (Car, Bike, Walk).</div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-item reveal" style="transition-delay: .05s">
+          <div class="gallery-visual wobble">
+            <img src="photos/navmind-3-2.png" alt="AI-Based Route Recommendation and Interactive Map" />
+          </div>
+          <div class="gallery-title">AI Route Recommendation</div>
+          <div class="gallery-desc">An interactive Leaflet route map showing optimal paths overlayed with live traffic congestion, risk analysis, and transit metrics.</div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-item reveal" style="transition-delay: .1s">
+          <div class="gallery-visual wobble">
+            <img src="photos/navmind-3-3.png" alt="Navigation and Real-Time Route Tracking Interface" />
+          </div>
+          <div class="gallery-title">Real-Time Navigation Tracking</div>
+          <div class="gallery-desc">Visualizes real-time progress on active routes, displaying speedometer logs and dynamic parameter recalculations.</div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-item reveal" style="transition-delay: .15s">
+          <div class="gallery-visual wobble">
+            <img src="photos/navmind-3-4.png" alt="Multiple Route Comparison and Prediction Analysis" />
+          </div>
+          <div class="gallery-title">Multi-Route Metrics Comparison</div>
+          <div class="gallery-desc">Compares distance, congestion delay, ensemble predictions, and departure timing risk level for Routes A, B, and C.</div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="gallery-item reveal" style="transition-delay: .2s">
+          <div class="gallery-visual wobble">
+            <img src="photos/navmind-3-5.png" alt="Smart Departure Forecast and Explainable AI Analysis" />
+          </div>
+          <div class="gallery-title">12-Hour Congestion Forecast</div>
+          <div class="gallery-desc">Smart departure curves showing low, medium, and high traffic risk hourly forecasts, helping select the optimal travel window.</div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-item reveal" style="transition-delay: .25s">
+          <div class="gallery-visual wobble">
+            <img src="photos/navmind-3-6.png" alt="NavMind AI Chat Assistant Interface" />
+          </div>
+          <div class="gallery-title">AI Voice Chat Assistant</div>
+          <div class="gallery-desc">A hands-free conversational voice assistant utilizing speech-to-text to help input coordinates and answer live queries.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP SECTION -->
+  <section class="detail-section" id="roadmap">
+    <div class="wrap">
+      <div class="section-tag">Project Phases</div>
+      <h2 class="section-title reveal">Roadmap &amp; Future Scope</h2>
+
+      <div class="roadmap-list reveal">
+        <!-- Phase 1 -->
+        <div class="roadmap-item completed">
+          <h4>Phase 1</h4>
+          <h5>Research &amp; Setup</h5>
+          <p>TomTom traffic integrations, weather overlays, and scikit-learn models pre-training configurations.</p>
+        </div>
+        <!-- Phase 2 -->
+        <div class="roadmap-item completed">
+          <h4>Phase 2</h4>
+          <h5>Core Routing</h5>
+          <p>Dijkstra route optimizations via OpenRouteService and React Leaflet map tiles setup.</p>
+        </div>
+        <!-- Phase 3 -->
+        <div class="roadmap-item completed">
+          <h4>Phase 3</h4>
+          <h5>AI Integrations</h5>
+          <p>Google Gemini AI route explanations and speech recognition voice assistant integration (Done).</p>
+        </div>
+        <!-- Phase 4 -->
+        <div class="roadmap-item in-progress">
+          <h4>Phase 4</h4>
+          <h5>Deep Learning</h5>
+          <p>Integrating advanced LSTM deep learning models for sequence traffic predictions (In progress).</p>
+        </div>
+        <!-- Phase 5 -->
+        <div class="roadmap-item">
+          <h4>Phase 5</h4>
+          <h5>Mobile Client</h5>
+          <p>Compiling cross-platform mobile views using React Native for live GPS updates.</p>
+        </div>
+        <!-- Phase 6 -->
+        <div class="roadmap-item">
+          <h4>Phase 6</h4>
+          <h5>City Analytics</h5>
+          <p>City-wide telemetry analytics for traffic engineering departments and route profile distributions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHALLENGES & LEARNINGS -->
+  <section class="detail-section" id="learnings">
+    <div class="wrap">
+      <div class="two-col-grid reveal">
+        <div>
+          <h2 class="section-title">Challenges &amp; Learnings</h2>
+          <p class="h-hand" style="font-size: 20px; line-height: 1.45; margin-bottom: 18px;">
+            Constructing predictive routing systems requires processing highly asynchronous and rate-limited web feeds.
+          </p>
+          <div class="box fill" style="padding: 22px; margin-bottom: 18px;">
+            <p
+              style="font-family:'Patrick Hand',cursive; font-size:18px; margin:0; font-weight:bold; color: var(--accent)">
+              Challenge: API Rate Limits and Latency
+            </p>
+            <p class="h-hand" style="font-size:17px; margin-top: 6px; line-height: 1.3;">
+              TomTom and OpenRouteService APIs have strict monthly query caps and can slow down under high load.
+            </p>
+          </div>
+          <p class="h-hand" style="font-size: 20px; line-height: 1.45;">
+            <strong>The Learning:</strong> We implemented a local redis-style server cache to store route calculations
+            and weather conditions for popular coordinates (expiring every 5 minutes). Additionally, we trained
+            localized offline RandomForest models to generate speed predictions locally when APIs hit limits, ensuring
+            seamless routing.
+          </p>
+        </div>
+        <div>
+          <h2 class="section-title">Results &amp; Impact</h2>
+          <p class="h-hand" style="font-size: 20px; line-height: 1.45; margin-bottom: 22px;">
+            NavMind AI successfully demonstrates how multi-modal data streams can guide transportation routing
+            dynamically.
+          </p>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="box dashed" style="padding: 16px; text-align: center;">
+              <strong class="h-display" style="font-size: 28px; color: var(--accent);">35%</strong>
+              <span class="h-hand" style="font-size: 16px; display: block; margin-top: 4px;">Average Travel Uncertainty
+                Saved</span>
+            </div>
+            <div class="box dashed" style="padding: 16px; text-align: center;">
+              <strong class="h-display" style="font-size: 28px;">&lt; 150ms</strong>
+              <span class="h-hand" style="font-size: 16px; display: block; margin-top: 4px;">Local Prediction
+                Times</span>
+            </div>
+            <div class="box dashed" style="padding: 16px; text-align: center;">
+              <strong class="h-display" style="font-size: 28px;">12 Hrs</strong>
+              <span class="h-hand" style="font-size: 16px; display: block; margin-top: 4px;">Departure
+                Forecasting</span>
+            </div>
+            <div class="box dashed" style="padding: 16px; text-align: center;">
+              <strong class="h-display" style="font-size: 28px;">Yes</strong>
+              <span class="h-hand" style="font-size: 16px; display: block; margin-top: 4px;">Explainable AI
+                Explanations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="wrap">
+    <div class="cta-box wobble reveal">
+      <h2>Interested in NavMind AI?</h2>
+      <p class="h-hand">Explore the source code on GitHub, review API documentations, or reach out to discuss
+        intelligent routing.</p>
+
+      <div class="cta-buttons">
+        <a href="https://github.com/preethu2896/NavMind-AI" target="_blank" rel="noopener" class="btn primary">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="margin-right: 4px;">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.43 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.22.694.825.576C20.565 21.795 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          View GitHub Repository
+        </a>
+        <a href="mailto:preethambhandary385@gmail.com" class="btn"
+          style="background: rgba(243, 238, 226, 0.12); color: var(--paper); border-color: rgba(243,238,226,0.3)">
+          Contact Me
+        </a>
+        <a href="index.html#products" class="btn">
+          Explore More Projects
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="border-top: 2px solid var(--rule); padding: 40px 0 30px; margin-top: 60px; background: var(--paper);">
+    <div class="wrap">
+      <!-- Hand-drawn divider line -->
+      <svg viewBox="0 0 1200 10" width="100%" height="10" fill="none" stroke="var(--rule)" stroke-width="2" stroke-linecap="round" style="margin-bottom: 30px; opacity: 0.8;">
+        <path d="M 5,5 Q 300,8 600,3 T 1195,6" />
+      </svg>
+
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px;">
+        <!-- Left: Logo & Tagline -->
+        <div style="max-width: 320px;">
+          <div class="foot-logo h-display" style="font-size: 20px; margin-bottom: 8px;">PREETHAM <span>BHANDARY</span></div>
+          <p class="h-hand" style="font-size: 18px; color: var(--muted);">Building the future, one project at a time.</p>
+        </div>
+
+        <!-- Middle: Navigation Links -->
+        <div>
+          <h5 class="h-display" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Navigation</h5>
+          <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 12px 20px; max-width: 450px; padding: 0;">
+            <li><a href="index.html#about" class="h-print" style="font-size: 16px;">About</a></li>
+            <li><a href="projects.html" class="h-print" style="font-size: 16px;">Projects</a></li>
+            <li><a href="index.html#toolkit" class="h-print" style="font-size: 16px;">My Toolkit</a></li>
+            <li><a href="index.html#experience" class="h-print" style="font-size: 16px;">Experience</a></li>
+            <li><a href="index.html#achievements" class="h-print" style="font-size: 16px;">Achievements</a></li>
+            <li><a href="index.html#education" class="h-print" style="font-size: 16px;">Education</a></li>
+            <li><a href="mailto:preethambhandary385@gmail.com" class="h-print" style="font-size: 16px;">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Right: Social Links -->
+        <div style="min-width: 150px;">
+          <h5 class="h-display" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Social Connect</h5>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; padding: 0;">
+            <li><a href="https://github.com/preethu2896" target="_blank" rel="noopener" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💻 GitHub</a></li>
+            <li><a href="https://linkedin.com/in/preethambhandary" target="_blank" rel="noopener" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💼 LinkedIn</a></li>
+            <li><a href="mailto:preethambhandary385@gmail.com" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">📧 Email</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright note -->
+      <div style="margin-top: 36px; padding-top: 18px; border-top: 1px dashed rgba(21,19,15,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-family: 'Patrick Hand', cursive; font-size: 14px; color: var(--muted);">
+        <span>© 2026 Preetham B. All Rights Reserved.</span>
+        <span class="h-hand" style="font-size: 15px;">made solo · shipped with ❤ from Bangalore</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+
+</html>

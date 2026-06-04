@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AutoCTI Case Study — Preetham Bhandary</title>
+  <meta name="description"
+    content="Detailed case study of AutoCTI — an Automated Cyber Threat Detection system using AutoML, FastAPI, and React. Built by Preetham Bhandary." />
+  <link rel="canonical" href="project-autocti.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AutoCTI Case Study — Preetham Bhandary" />
+  <meta property="og:description"
+    content="Automated cyber threat detection utilizing machine learning, real-time WebSockets, and modern web tech stacks." />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Patrick+Hand&family=Rubik+Mono+One&family=JetBrains+Mono:wght@400;600&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+
+  <style>
+    /* ===== CASE STUDY PAGE STYLES ===== */
+    .case-hero {
+      padding: 60px 0;
+      border-bottom: 2px solid var(--rule);
+      text-align: left;
+      position: relative;
+    }
+
+    .case-banner {
+      width: 100%;
+      height: clamp(240px, 40vw, 480px);
+      border: 3px solid var(--rule);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 32px;
+      background: var(--paper-2);
+      box-shadow: 4px 4px 0 var(--rule);
+    }
+
+    .case-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .tech-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 18px 0 24px;
+    }
+
+    .case-title {
+      font-size: clamp(32px, 6vw, 68px);
+      line-height: 1.0;
+      margin-bottom: 16px;
+    }
+
+    .case-meta {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      margin-top: 48px;
+      align-items: start;
+    }
+
+    .case-meta h3 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 20px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    /* Grid Layouts for Sections */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+    }
+
+    .detail-section {
+      padding: 64px 0;
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .section-title {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: clamp(24px, 4vw, 36px);
+      line-height: 1.0;
+      margin-bottom: 20px;
+    }
+
+    .handwritten-highlight {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: var(--accent);
+      line-height: 1.3;
+      margin-bottom: 20px;
+      transform: rotate(-0.5deg);
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .feature-card {
+      padding: 24px 20px;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .feature-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 4px 4px 0 var(--rule);
+    }
+
+    .feature-card svg {
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .feature-card h4 {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .feature-card p {
+      font-family: 'Caveat', cursive;
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.25;
+    }
+
+    /* Architecture SVG Diagram */
+    .arch-container {
+      background: var(--paper-2);
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-top: 28px;
+      overflow-x: auto;
+      display: flex;
+      justify-content: center;
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .arch-svg {
+      min-width: 800px;
+      height: auto;
+    }
+
+    /* Tech Stack */
+    .tech-stack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .stack-box {
+      padding: 24px;
+    }
+
+    .stack-box h4 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: var(--accent);
+    }
+
+    .stack-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .stack-box li {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 19px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px dashed rgba(21, 19, 15, .1);
+      padding-bottom: 6px;
+    }
+
+    .stack-box li::before {
+      content: "✦";
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    /* Table styling */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      border: 1.5px solid var(--rule);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    .comparison-table th {
+      background: var(--paper-2);
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .comparison-table tr:hover {
+      background: rgba(255, 91, 31, .04);
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 32px;
+    }
+
+    .gallery-item {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 16px;
+      box-shadow: 3px 3px 0 var(--rule);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 6px 6px 0 var(--rule);
+    }
+
+    .gallery-visual {
+      background: var(--paper-2);
+      border: 1.5px dashed var(--rule);
+      border-radius: 4px;
+      aspect-ratio: 16/10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .gallery-title {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .gallery-desc {
+      font-family: 'Caveat', cursive;
+      font-size: 16px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Timeline / Roadmap steps */
+    .roadmap-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .roadmap-item {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 20px;
+      position: relative;
+      background: var(--paper);
+      box-shadow: 3px 3px 0 var(--rule);
+    }
+
+    .roadmap-item.completed {
+      border-color: var(--accent);
+      box-shadow: 3px 3px 0 var(--accent);
+    }
+
+    .roadmap-item.completed::after {
+      content: "✓ Done";
+      position: absolute;
+      top: -12px;
+      right: 12px;
+      font-family: 'Caveat', cursive;
+      font-size: 15px;
+      color: var(--accent);
+      background: var(--paper);
+      padding: 0 8px;
+      border: 1.5px solid var(--accent);
+      border-radius: 4px;
+    }
+
+    .roadmap-item.in-progress::after {
+      content: "✦ In Progress";
+      position: absolute;
+      top: -12px;
+      right: 12px;
+      font-family: 'Caveat', cursive;
+      font-size: 15px;
+      color: var(--muted);
+      background: var(--paper);
+      padding: 0 8px;
+      border: 1.5px dashed var(--rule);
+      border-radius: 4px;
+    }
+
+    .roadmap-item h4 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .roadmap-item.completed h4 {
+      color: var(--ink);
+    }
+
+    .roadmap-item h5 {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .roadmap-item p {
+      font-family: 'Caveat', cursive;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.2;
+    }
+
+    /* Getting started codes */
+    .code-console {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 20px;
+      border-radius: var(--radius);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      margin-top: 14px;
+      position: relative;
+      overflow-x: auto;
+      border: 2px solid var(--rule);
+      box-shadow: 4px 4px 0 var(--accent);
+    }
+
+    .code-console::before {
+      content: "Terminal";
+      position: absolute;
+      top: 2px;
+      right: 12px;
+      font-size: 10px;
+      opacity: 0.4;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* CTA Section */
+    .cta-box {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--paper);
+      padding: 52px 48px;
+      text-align: center;
+      margin: 64px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: "// AUTOCTI CASE STUDY";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      opacity: .35;
+      position: absolute;
+      top: 14px;
+      left: 20px;
+    }
+
+    .cta-box h2 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: clamp(26px, 4vw, 48px);
+      line-height: 1.0;
+      margin-bottom: 18px;
+    }
+
+    .cta-box p {
+      font-family: 'Caveat', cursive;
+      font-size: 21px;
+      opacity: .85;
+      max-width: 600px;
+      margin: 0 auto 28px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 980px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .roadmap-list {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .tech-stack-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .two-col-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .case-meta {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        padding: 36px 20px;
+      }
+    }
+    footer a {
+      transition: color 0.15s;
+    }
+    footer a:hover {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SVG Filters -->
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+    <defs>
+      <filter id="wobble">
+        <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="3" />
+        <feDisplacementMap in="SourceGraphic" scale="2" />
+      </filter>
+      <filter id="wobble-2">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="7" />
+        <feDisplacementMap in="SourceGraphic" scale="3" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation">
+    <div class="wrap nav-wrap">
+      <a href="index.html" class="nav-logo">PREETHAM <span>BHANDARY</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="index.html#toolkit">My Toolkit</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#achievements">Achievements</a></li>
+        <li><a href="index.html#education">Education</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn primary nav-cta sm">Contact Me →</a>
+      <button class="nav-toggle" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="toggleMenu()">Home</a>
+    <a href="index.html#about" onclick="toggleMenu()">About</a>
+    <a href="projects.html" onclick="toggleMenu()">Projects</a>
+    <a href="index.html#toolkit" onclick="toggleMenu()">My Toolkit</a>
+    <a href="index.html#experience" onclick="toggleMenu()">Experience</a>
+    <a href="index.html#achievements" onclick="toggleMenu()">Achievements</a>
+    <a href="index.html#education" onclick="toggleMenu()">Education</a>
+    <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- HERO SECTION -->
+  <header class="case-hero">
+    <div class="wrap">
+      <a href="projects.html" class="btn sm" style="margin-bottom: 24px;">← Back to Projects</a>
+      <div class="section-tag">Case Study — Machine Learning &amp; Cybersecurity</div>
+
+      <div class="case-banner wobble">
+        <img src="photos/autocti.png" alt="AutoCTI - Automated Cyber Threat Detection Using AutoML" />
+      </div>
+
+      <h1 class="case-title h-display">🛡️ AutoCTI</h1>
+      <p class="handwritten-highlight">Automated Cyber Threat Detection using AutoML</p>
+
+      <div class="tech-badges">
+        <span class="tag accent">FastAPI</span>
+        <span class="tag">React</span>
+        <span class="tag accent">AutoML</span>
+        <span class="tag">Chrome Extension</span>
+        <span class="tag ink">Manifest V3</span>
+      </div>
+
+      <p class="h-hand" style="font-size: 24px; line-height: 1.35; max-width: 850px; margin-bottom: 28px;">
+        A real-time cybersecurity system that detects and blocks threats from platforms like WhatsApp, Gmail, and
+        browsers using AutoML algorithms and a background Chrome Extension.
+      </p>
+
+      <div class="hero-ctas" style="justify-content: flex-start; margin-bottom: 0;">
+        <a href="https://github.com/preethu2896/AUTOCTI" target="_blank" rel="noopener" class="btn primary">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="margin-right: 4px;">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.43 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.22.694.825.576C20.565 21.795 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub Repository
+        </a>
+        <a href="#gallery" class="btn">View Screenshots</a>
+        <a href="projects.html" class="btn ghost">← Back to Projects</a>
+      </div>
+
+      <div class="case-meta">
+        <div>
+          <h3>Project Team</h3>
+          <p class="h-hand" style="font-size: 19px; color: var(--muted)">
+            AutoCTI was designed and developed by:
+            <strong>Preetham Bhandary</strong>,
+            <strong>Sanjana A Padukone</strong>,
+            <strong>Sakshi V Moger</strong>, and
+            <strong>Sreedevi P</strong>.
+          </p>
+        </div>
+        <div>
+          <h3>Key Highlights</h3>
+          <p class="h-hand" style="font-size: 19px; color: var(--muted)">
+            ⚡ <strong>Real-time Detection:</strong> Instantaneous analysis of clicked URLs.<br />
+            🧠 <strong>AutoML Core:</strong> Auto-model selection (H2O.ai / Auto-sklearn).<br />
+            🧩 <strong>Chrome Extension:</strong> Seamless background browser blocking.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- OVERVIEW & PROBLEM STATEMENT -->
+  <section class="detail-section" id="problem">
+    <div class="wrap">
+      <div class="two-col-grid reveal">
+        <div>
+          <h2 class="section-title">Overview</h2>
+          <p class="h-hand" style="font-size: 20px; line-height: 1.45; margin-bottom: 18px;">
+            With attackers increasingly leveraging chat apps like WhatsApp, email systems like Gmail, and web
+            applications to distribute malicious links, traditional security methods fall short.
+          </p>
+          <p class="h-hand" style="font-size: 20px; line-height: 1.45;">
+            <strong>AutoCTI</strong> acts as an active shield. It monitors network requests in the background,
+            intercepting link clicks from any web source. Instead of relying on signature-based static rule databases
+            (which fail against new domains), AutoCTI uses machine learning pipelines to detect anomalies dynamically.
+          </p>
+        </div>
+        <div class="box fill" style="padding: 28px;">
+          <h3 class="h-display" style="font-size: 15px; margin-bottom: 14px; color: var(--accent);">Monitored Attack
+            Vectors</h3>
+          <ul class="feature-list" style="margin-bottom: 0;">
+            <li style="font-size: 16px; padding: 6px 10px;">🎣 <strong>Phishing URLs:</strong> Deceptive sites mimicking
+              real banking or utility services.</li>
+            <li style="font-size: 16px; padding: 6px 10px;">🔗 <strong>Suspicious Links:</strong> Obfuscated, heavily
+              redirected, or short domains.</li>
+            <li style="font-size: 16px; padding: 6px 10px;">🔓 <strong>Brute-Force:</strong> Multiple repeated API logs
+              and credential-stuffing logs.</li>
+            <li style="font-size: 16px; padding: 6px 10px;">🦠 <strong>Malware Payloads:</strong> Binary structures
+              analyzed via behavior heuristics (in progress).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION SECTION -->
+  <section class="detail-section" id="solution">
+    <div class="wrap">
+      <div class="reveal">
+        <h2 class="section-title">The Solution: AutoCTI vs Antivirus</h2>
+        <p class="h-hand" style="font-size: 20px; line-height: 1.45; margin-bottom: 24px;">
+          Traditional firewalls and antivirus packages struggle with URL-based social engineering and zero-day malicious
+          domains. AutoCTI uses Automated Machine Learning to adapt to new threat behaviors without waiting for manual
+          library updates.
+        </p>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>🛡️ Traditional Antivirus</th>
+              <th>🧠 AutoCTI Solution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Primary Approach</strong></td>
+              <td>Static / Signature-based library checks</td>
+              <td>Dynamic / Machine Learning anomaly detection</td>
+            </tr>
+            <tr>
+              <td><strong>Zero-Day Threats</strong></td>
+              <td>❌ Cannot detect unknown threats</td>
+              <td>✅ Identifies new anomalies autonomously</td>
+            </tr>
+            <tr>
+              <td><strong>Adaptability</strong></td>
+              <td>❌ Relies on manual, scheduled database updates</td>
+              <td>✅ Adapts on-the-fly via AutoML retraining</td>
+            </tr>
+            <tr>
+              <td><strong>Focus Area</strong></td>
+              <td>💻 Offline File system &amp; executable binaries</td>
+              <td>🌐 Web links, chat app traffic, and live URLs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY FEATURES SECTION -->
+  <section class="detail-section" id="features">
+    <div class="wrap">
+      <div class="section-tag">Key Highlights</div>
+      <h2 class="section-title reveal">Core Capabilities</h2>
+
+      <div class="features-grid">
+        <!-- F1 -->
+        <div class="box feature-card wobble reveal">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+          <h4>Real-time Detection</h4>
+          <p>Instantaneous analysis of clicked links from WhatsApp Web, Gmail, or standard web browsers.</p>
+        </div>
+        <!-- F2 -->
+        <div class="box feature-card wobble reveal" style="transition-delay: .05s">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <path
+              d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l-7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+          </svg>
+          <h4>AutoML Core</h4>
+          <p>Utilizes H2O.ai &amp; Auto-sklearn to automatically run and select high-precision models.</p>
+        </div>
+        <!-- F3 -->
+        <div class="box feature-card wobble reveal" style="transition-delay: .1s">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          <h4>Chrome Extension</h4>
+          <p>Manifest V3 extension monitors browser activities silently in the background.</p>
+        </div>
+        <!-- F4 -->
+        <div class="box feature-card wobble reveal" style="transition-delay: .15s">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <path d="M9 17v-5M12 17V9M15 17v-3" />
+          </svg>
+          <h4>Interactive Dashboard</h4>
+          <p>A comprehensive React dashboard to visualize active logs, threats, and severity metrics.</p>
+        </div>
+        <!-- F5 -->
+        <div class="box feature-card wobble reveal" style="transition-delay: .2s">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+          </svg>
+          <h4>Automated Blocking</h4>
+          <p>Neutralizes threats immediately on the client side before the user's browser loads the page.</p>
+        </div>
+        <!-- F6 -->
+        <div class="box feature-card wobble reveal" style="transition-delay: .25s">
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <h4>Severity Levels</h4>
+          <p>Triages threat vectors into Low (🟢), Medium (🟡), and Critical (🔴) classification pools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE SECTION -->
+  <section class="detail-section" id="architecture">
+    <div class="wrap">
+      <div class="section-tag">System Design</div>
+      <h2 class="section-title reveal">System Architecture</h2>
+      <p class="h-hand" style="font-size: 20px; color: var(--muted); max-width: 750px; margin-bottom: 24px;">
+        AutoCTI integrates a Chrome Extension client with a FastAPI server to run real-time AutoML classification.
+      </p>
+
+      <div class="arch-container reveal">
+        <!-- SVG Architecture flow matching the sequence diagram in README -->
+        <svg viewBox="0 0 880 200" class="arch-svg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#15130f" />
+            </marker>
+          </defs>
+
+          <!-- Column 1: User -->
+          <rect x="20" y="55" width="100" height="70" rx="6" fill="#faf7f0" stroke="#15130f" stroke-width="2.5" />
+          <text x="70" y="90" font-family="'Patrick Hand', cursive" font-size="16" font-weight="bold"
+            text-anchor="middle" fill="#15130f">User Agent</text>
+          <text x="70" y="108" font-family="'Caveat', cursive" font-size="13" text-anchor="middle" fill="#8a8678">Clicks
+            URL</text>
+
+          <line x1="120" y1="90" x2="170" y2="90" stroke="#15130f" stroke-width="2" marker-end="url(#arrow)" />
+
+          <!-- Column 2: Chrome Extension -->
+          <rect x="180" y="50" width="130" height="80" rx="6" fill="#f3eee2" stroke="#15130f" stroke-width="2.5" />
+          <text x="245" y="85" font-family="'Patrick Hand', cursive" font-size="16" font-weight="bold"
+            text-anchor="middle" fill="#15130f">Chrome Extension</text>
+          <text x="245" y="103" font-family="'Caveat', cursive" font-size="13" text-anchor="middle"
+            fill="#8a8678">Captures URL (MV3)</text>
+          <text x="245" y="117" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle"
+            fill="#ff5b1f">Background Script</text>
+
+          <line x1="310" y1="90" x2="360" y2="90" stroke="#15130f" stroke-width="2" marker-end="url(#arrow)" />
+
+          <!-- Column 3: FastAPI Backend -->
+          <rect x="370" y="50" width="130" height="80" rx="6" fill="#faf7f0" stroke="#15130f" stroke-width="2.5" />
+          <text x="435" y="85" font-family="'Patrick Hand', cursive" font-size="16" font-weight="bold"
+            text-anchor="middle" fill="#15130f">FastAPI Backend</text>
+          <text x="435" y="103" font-family="'Caveat', cursive" font-size="13" text-anchor="middle"
+            fill="#8a8678">Triggers ML Analysis</text>
+          <text x="435" y="117" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle"
+            fill="#ff5b1f">REST / WebSockets</text>
+
+          <line x1="500" y1="90" x2="550" y2="90" stroke="#15130f" stroke-width="2" marker-end="url(#arrow)" />
+
+          <!-- Column 4: AutoML Engine -->
+          <rect x="560" y="45" width="130" height="90" rx="6" fill="#ff5b1f" fill-opacity="0.15" stroke="#15130f"
+            stroke-width="2.5" />
+          <text x="625" y="80" font-family="'Patrick Hand', cursive" font-size="16" font-weight="bold"
+            text-anchor="middle" fill="#15130f">AutoML Engine</text>
+          <text x="625" y="98" font-family="'Caveat', cursive" font-size="13" text-anchor="middle"
+            fill="#8a8678">Classifies Domain</text>
+          <text x="625" y="115" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle"
+            fill="#ff5b1f">H2O.ai / sklearn</text>
+
+          <!-- Return Loops -->
+          <path d="M 625 135 L 625 165 L 245 165 L 245 130" fill="none" stroke="#ff5b1f" stroke-width="2"
+            marker-end="url(#arrow)" stroke-dasharray="4,2" />
+          <text x="435" y="180" font-family="'Caveat', cursive" font-size="14" fill="#ff5b1f"
+            text-anchor="middle">Blocks threat requests &amp; updates React dashboard metrics</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY STACK -->
+  <section class="detail-section" id="techstack">
+    <div class="wrap">
+      <div class="section-tag">Specifications</div>
+      <h2 class="section-title reveal">Tech Stack</h2>
+
+      <div class="tech-stack-grid reveal">
+        <!-- Backend -->
+        <div class="box stack-box wobble">
+          <h4>Backend &amp; Core Logic</h4>
+          <ul>
+            <li>FastAPI (Asynchronous Python)</li>
+            <li>REST APIs &amp; WebSocket protocols</li>
+            <li>Uvicorn development server</li>
+            <li>Pydantic schemas for logs</li>
+          </ul>
+        </div>
+        <!-- ML -->
+        <div class="box stack-box wobble">
+          <h4>Machine Learning Engine</h4>
+          <ul>
+            <li>AutoML (H2O.ai / Auto-sklearn)</li>
+            <li>Dynamic model selection pipelines</li>
+            <li>Hyperparameter tuning optimization</li>
+            <li>Scikit-learn classification models</li>
+          </ul>
+        </div>
+        <!-- Frontend -->
+        <div class="box stack-box wobble">
+          <h4>Frontend &amp; Client</h4>
+          <ul>
+            <li>React.js Threat Dashboard UI</li>
+            <li>Chrome Extension (Background Service)</li>
+            <li>JavaScript &amp; Manifest V3 API Hooks</li>
+            <li>Active page DOM blocking handlers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GETTING STARTED -->
+  <section class="detail-section" id="setup">
+    <div class="wrap">
+      <div class="section-tag">Local Setup</div>
+      <h2 class="section-title reveal">Getting Started</h2>
+
+      <div class="reveal">
+        <h3 class="h-display" style="font-size: 16px; margin-top: 24px;">1️⃣ Backend Setup (FastAPI)</h3>
+        <div class="code-console">
+          # Navigate to the backend directory
+          cd backend
+
+          # Install required dependencies
+          pip install -r requirements.txt
+
+          # Start the FastAPI development server
+          uvicorn main:app --reload
+        </div>
+
+        <h3 class="h-display" style="font-size: 16px; margin-top: 28px;">2️⃣ Frontend Setup (React)</h3>
+        <div class="code-console">
+          # Navigate to the frontend directory
+          cd frontend
+
+          # Install Node modules
+          npm install
+
+          # Start the React development server
+          npm start
+        </div>
+
+        <h3 class="h-display" style="font-size: 16px; margin-top: 28px;">3️⃣ Chrome Extension Installation</h3>
+        <p class="h-hand" style="font-size: 18px; margin-top: 6px; color: var(--muted)">
+          Open Google Chrome and navigate to <code>chrome://extensions/</code>. Toggle **Developer Mode** ON, click
+          **Load unpacked**, and select the <code>backend/autocti_chrome_ext</code> directory.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="detail-section" id="gallery">
+    <div class="wrap">
+      <div class="section-tag">Visuals</div>
+      <h2 class="section-title reveal">Interface Gallery</h2>
+
+      <div class="gallery-grid">
+        <!-- Screenshot 1 -->
+        <div class="gallery-item reveal">
+          <div class="gallery-visual wobble">
+            <img src="photos/login.jpeg" alt="AUTOCTI Project"
+              style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
+          </div>
+          <div class="gallery-title">🔐 Authentication Portal</div>
+          <div class="gallery-desc">Secure access portal designed for security operators and local log managers.</div>
+        </div>
+
+        <!-- Screenshot 2 -->
+        <div class="gallery-item reveal" style="transition-delay: .08s">
+          <div class="gallery-visual wobble">
+            <img src="photos/homepage.png" alt="AUTOCTI Project"
+              style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
+          </div>
+          <div class="gallery-title">📊 Threat Analytics Dashboard</div>
+          <div class="gallery-desc">React homepage visualising incoming streams, URL severity distributions, and model
+            performance.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP SECTION -->
+  <section class="detail-section" id="roadmap">
+    <div class="wrap">
+      <div class="section-tag">Future Scope</div>
+      <h2 class="section-title reveal">Roadmap &amp; Phases</h2>
+
+      <div class="roadmap-list reveal">
+        <!-- Phase 1 -->
+        <div class="roadmap-item completed">
+          <h4>Phase 1</h4>
+          <h5>Core Integration</h5>
+          <p>Phishing detection models training and background Chrome Extension (Manifest V3) integration.</p>
+        </div>
+        <!-- Phase 2 -->
+        <div class="roadmap-item completed">
+          <h4>Phase 2</h4>
+          <h5>Analytics Console</h5>
+          <p>Real-time React dashboard console displaying logs, metrics, and threat tracking indexes.</p>
+        </div>
+        <!-- Phase 3 -->
+        <div class="roadmap-item in-progress">
+          <h4>Phase 3</h4>
+          <h5>Malware Analysis</h5>
+          <p>Behavior-based script sandboxing and file payload classification using AutoML (In progress).</p>
+        </div>
+        <!-- Phase 4 -->
+        <div class="roadmap-item">
+          <h4>Phase 4</h4>
+          <h5>Cloud &amp; Packaging</h5>
+          <p>Dockerizing system components and provisioning AWS/GCP pipelines for cloud hosting.</p>
+        </div>
+        <!-- Phase 5 -->
+        <div class="roadmap-item">
+          <h4>Phase 5</h4>
+          <h5>Explainable AI</h5>
+          <p>Integrating XAI tools to explain specific model decisions for blocked URLs to operators.</p>
+        </div>
+        <!-- Phase 6 -->
+        <div class="roadmap-item">
+          <h4>Phase 6</h4>
+          <h5>Retraining Loop</h5>
+          <p>Continuous model retraining feeds to automatically ingest new threat feeds without shutdowns.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="wrap">
+    <div class="cta-box wobble reveal">
+      <h2>Interested in AutoCTI?</h2>
+      <p class="h-hand">Check out the full open-source codebase on GitHub or reach out to discuss machine learning
+        integrations.</p>
+
+      <div class="cta-buttons">
+        <a href="https://github.com/preethu2896/AUTOCTI" target="_blank" rel="noopener" class="btn primary">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="margin-right: 4px;">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.43 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.22.694.825.576C20.565 21.795 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          View GitHub Repository
+        </a>
+        <a href="index.html#contact" class="btn"
+          style="background: rgba(243, 238, 226, 0.12); color: var(--paper); border-color: rgba(243,238,226,0.3)">
+          Contact Me
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="border-top: 2px solid var(--rule); padding: 40px 0 30px; margin-top: 60px; background: var(--paper);">
+    <div class="wrap">
+      <!-- Hand-drawn divider line -->
+      <svg viewBox="0 0 1200 10" width="100%" height="10" fill="none" stroke="var(--rule)" stroke-width="2" stroke-linecap="round" style="margin-bottom: 30px; opacity: 0.8;">
+        <path d="M 5,5 Q 300,8 600,3 T 1195,6" />
+      </svg>
+
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px;">
+        <!-- Left: Logo & Tagline -->
+        <div style="max-width: 320px;">
+          <div class="foot-logo h-display" style="font-size: 20px; margin-bottom: 8px;">PREETHAM <span>BHANDARY</span></div>
+          <p class="h-hand" style="font-size: 18px; color: var(--muted);">Building the future, one project at a time.</p>
+        </div>
+
+        <!-- Middle: Navigation Links -->
+        <div>
+          <h5 class="h-display" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Navigation</h5>
+          <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 12px 20px; max-width: 450px; padding: 0;">
+            <li><a href="index.html#about" class="h-print" style="font-size: 16px;">About</a></li>
+            <li><a href="projects.html" class="h-print" style="font-size: 16px;">Projects</a></li>
+            <li><a href="index.html#toolkit" class="h-print" style="font-size: 16px;">My Toolkit</a></li>
+            <li><a href="index.html#experience" class="h-print" style="font-size: 16px;">Experience</a></li>
+            <li><a href="index.html#achievements" class="h-print" style="font-size: 16px;">Achievements</a></li>
+            <li><a href="index.html#education" class="h-print" style="font-size: 16px;">Education</a></li>
+            <li><a href="mailto:preethambhandary385@gmail.com" class="h-print" style="font-size: 16px;">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Right: Social Links -->
+        <div style="min-width: 150px;">
+          <h5 class="h-display" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Social Connect</h5>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; padding: 0;">
+            <li><a href="https://github.com/preethu2896" target="_blank" rel="noopener" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💻 GitHub</a></li>
+            <li><a href="https://linkedin.com/in/preethambhandary" target="_blank" rel="noopener" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💼 LinkedIn</a></li>
+            <li><a href="index.html#contact" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">📧 Email</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright note -->
+      <div style="margin-top: 36px; padding-top: 18px; border-top: 1px dashed rgba(21,19,15,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-family: 'Patrick Hand', cursive; font-size: 14px; color: var(--muted);">
+        <span>© 2026 Preetham B. All Rights Reserved.</span>
+        <span class="h-hand" style="font-size: 15px;">made solo · shipped with ❤ from Bangalore</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+
+</html>

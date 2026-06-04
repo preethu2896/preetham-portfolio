@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects & Case Studies — Preetham Bhandary</title>
+  <meta name="description"
+    content="Explore the software development, AI automation, and cybersecurity projects built by Preetham Bhandary." />
+  <link rel="canonical" href="projects.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projects & Case Studies — Preetham Bhandary" />
+  <meta property="og:description"
+    content="Explore the software development, AI automation, and cybersecurity projects built by Preetham Bhandary." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Patrick+Hand&family=Rubik+Mono+One&family=JetBrains+Mono:wght@400;600&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* ===== PAGE-SPECIFIC STYLES ===== */
+    .page-hero {
+      padding: 52px 0 40px;
+      border-bottom: 2px solid var(--rule);
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: clamp(36px, 7vw, 80px);
+      line-height: .92;
+      margin-bottom: 14px;
+    }
+
+    .page-hero p {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(20px, 3vw, 26px);
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 980px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+    footer a {
+      transition: color 0.15s;
+    }
+    footer a:hover {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SVG Filters -->
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+    <defs>
+      <filter id="wobble">
+        <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="3" />
+        <feDisplacementMap in="SourceGraphic" scale="2" />
+      </filter>
+      <filter id="wobble-2">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="7" />
+        <feDisplacementMap in="SourceGraphic" scale="3" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation">
+    <div class="wrap nav-wrap">
+      <a href="index.html" class="nav-logo">PREETHAM <span>BHANDARY</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="index.html#toolkit">My Toolkit</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#achievements">Achievements</a></li>
+        <li><a href="index.html#education">Education</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn primary nav-cta sm">Contact Me →</a>
+      <button class="nav-toggle" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="toggleMenu()">Home</a>
+    <a href="index.html#about" onclick="toggleMenu()">About</a>
+    <a href="projects.html" onclick="toggleMenu()">Projects</a>
+    <a href="index.html#toolkit" onclick="toggleMenu()">My Toolkit</a>
+    <a href="index.html#experience" onclick="toggleMenu()">Experience</a>
+    <a href="index.html#achievements" onclick="toggleMenu()">Achievements</a>
+    <a href="index.html#education" onclick="toggleMenu()">Education</a>
+    <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="section-tag">Portfolio &amp; Case Studies</div>
+      <h1 class="h-display">Things I've <span style="color:var(--accent)">Built.</span></h1>
+      <p class="h-hand">A showcase of software systems, machine learning pipelines, and brand identities I've developed.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="projects-grid">
+
+        <!-- Card 1: AUTOCTI -->
+        <div class="prod-card wobble reveal">
+          <span class="prod-ribbon">Machine Learning</span>
+          <div class="prod-img" style="height: 240px;">
+            <img src="photos/autocti.png" alt="AUTOCTI Project"
+              style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
+          </div>
+          <div class="prod-name h-print" style="font-size:22px;line-height:1.2;margin-top:12px;">
+            AUTOCTI : Automated Cyber Threat Detection Using AutoML
+          </div>
+          <div class="prod-benefit h-hand" style="font-size:18px;opacity:.85;margin-bottom:8px;">
+            FastAPI • React • AutoML
+          </div>
+          <p class="h-hand" style="font-size:17px;color:var(--muted);line-height:1.35;margin-bottom:14px;flex:1;">
+            A real-time threat detection system using AutoML algorithms and a background Chrome Extension to intercept
+            network requests and block malicious threat vectors.
+          </p>
+          <div class="prod-price-row" style="margin-top:auto;">
+            <a href="project-autocti.html" class="btn primary sm">View Project <span style="font-size:15px">→</span></a>
+            <a href="https://github.com/preethu2896/AUTOCTI" target="_blank" rel="noopener" class="btn sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Card 2: NavMind AI -->
+        <div class="prod-card wobble reveal" style="transition-delay:.08s">
+          <span class="prod-ribbon">Artificial Intelligence</span>
+          <div class="prod-img" style="height: 240px;">
+            <img src="photos/navmind-3-1.png" alt="NavMind AI Project"
+              style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
+          </div>
+          <div class="prod-name h-print" style="font-size:22px;line-height:1.2;margin-top:12px;">
+            NavMind AI: Traffic Prediction &amp; Route Recommendation
+          </div>
+          <div class="prod-benefit h-hand" style="font-size:18px;opacity:.85;margin-bottom:8px;">
+            FastAPI • React • ML • Gemini AI
+          </div>
+          <p class="h-hand" style="font-size:17px;color:var(--muted);line-height:1.35;margin-bottom:14px;flex:1;">
+            An intelligent traffic navigation platform forecasting route bottlenecks 12 hours ahead with Explainable AI
+            explanations powered by Google Gemini.
+          </p>
+          <div class="prod-price-row" style="margin-top:auto;">
+            <a href="project-navmind.html" class="btn primary sm">View Project <span style="font-size:15px">→</span></a>
+            <a href="https://github.com/preethu2896/Navmind-AI" target="_blank" rel="noopener" class="btn sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Card 3: Electra -->
+        <div class="prod-card wobble reveal" style="transition-delay:.16s">
+          <span class="prod-ribbon">Security &amp; Auth</span>
+          <div class="prod-img" style="height: 240px;">
+            <img src="photos/electra-hero.png" alt="Electra E-voting Project"
+              style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
+          </div>
+          <div class="prod-name h-print" style="font-size:22px;line-height:1.2;margin-top:12px;">
+            Electra - E-voting System
+          </div>
+          <div class="prod-benefit h-hand" style="font-size:18px;opacity:.85;margin-bottom:8px;">
+            Python • Authentication • Voting
+          </div>
+          <p class="h-hand" style="font-size:17px;color:var(--muted);line-height:1.35;margin-bottom:14px;flex:1;">
+            A secure e-voting platform for institutional elections featuring voter authentication, digital ballot
+            sheets, duplicate vote prevention, and automated tallies.
+          </p>
+          <div class="prod-price-row" style="margin-top:auto;">
+            <a href="project-electra.html" class="btn primary sm">View Project <span style="font-size:15px">→</span></a>
+            <a href="https://github.com/preethu2896/Electra-E-voting-system" target="_blank" rel="noopener"
+              class="btn sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Card 4: Inklayer -->
+        <div class="prod-card wobble reveal" style="transition-delay:.24s">
+          <span class="prod-ribbon">Branding &amp; Design</span>
+          <div class="prod-img" style="height: 240px;">
+            <img src="photos/inklayer-hero.png" alt="Inklayer streetwear brand branding"
+              style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+          </div>
+          <div class="prod-name h-print" style="font-size:22px;line-height:1.2;margin-top:12px;">
+            Inklayer — Modern Streetwear Brand
+          </div>
+          <div class="prod-benefit h-hand" style="font-size:18px;opacity:.85;margin-bottom:8px;">
+            Branding • E-Commerce • Design
+          </div>
+          <p class="h-hand" style="font-size:17px;color:var(--muted);line-height:1.35;margin-bottom:14px;flex:1;">
+            A digital-first streetwear clothing brand combining minimal contemporary style, custom apparel design, and
+            premium storefront user experiences.
+          </p>
+          <div class="prod-price-row" style="margin-top:auto;">
+            <a href="project-inklayer.html" class="btn primary sm">View Project <span
+                style="font-size:15px">→</span></a>
+            <a href="https://inklayer-l5qz.vercel.app" target="_blank" rel="noopener" class="btn sm">Website</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA COLLABORATION ===== -->
+  <section class="section" style="padding-top:40px;padding-bottom:40px">
+    <div class="wrap">
+      <div class="fw-band wobble reveal">
+        <div>
+          <div class="h-mono" style="font-size:12px;opacity:.6;margin-bottom:12px">// COLLABORATION &amp; CONSULTING
+          </div>
+          <h2 class="h-display" style="font-size:clamp(28px,4vw,54px);line-height:.95;margin-bottom:16px">
+            Have an idea you want to build?
+          </h2>
+          <p class="h-hand" style="font-size:21px;opacity:.85;max-width:600px;margin-bottom:22px">
+            Let's collaborate on software development, AI automations, or web platforms. I'm always open to interesting
+            projects and challenges.
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="index.html#contact" class="btn primary">Email Me →</a>
+            <a href="https://www.linkedin.com/in/preethambhandary" target="_blank" rel="noopener" class="btn"
+              style="background:rgba(243,238,226,.12);color:var(--paper);border-color:rgba(243,238,226,.4)">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="border-top: 2px solid var(--rule); padding: 40px 0 30px; margin-top: 60px; background: var(--paper);">
+    <div class="wrap">
+      <!-- Hand-drawn divider line -->
+      <svg viewBox="0 0 1200 10" width="100%" height="10" fill="none" stroke="var(--rule)" stroke-width="2" stroke-linecap="round" style="margin-bottom: 30px; opacity: 0.8;">
+        <path d="M 5,5 Q 300,8 600,3 T 1195,6" />
+      </svg>
+
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px;">
+        <!-- Left: Logo & Tagline -->
+        <div style="max-width: 320px;">
+          <div class="foot-logo h-display" style="font-size: 20px; margin-bottom: 8px;">PREETHAM <span>BHANDARY</span></div>
+          <p class="h-hand" style="font-size: 18px; color: var(--muted);">Building the future, one project at a time.</p>
+        </div>
+
+        <!-- Middle: Navigation Links -->
+        <div>
+          <h5 class="h-display" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Navigation</h5>
+          <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 12px 20px; max-width: 450px; padding: 0;">
+            <li><a href="index.html#about" class="h-print" style="font-size: 16px;">About</a></li>
+            <li><a href="projects.html" class="h-print" style="font-size: 16px;">Projects</a></li>
+            <li><a href="index.html#toolkit" class="h-print" style="font-size: 16px;">My Toolkit</a></li>
+            <li><a href="index.html#experience" class="h-print" style="font-size: 16px;">Experience</a></li>
+            <li><a href="index.html#achievements" class="h-print" style="font-size: 16px;">Achievements</a></li>
+            <li><a href="index.html#education" class="h-print" style="font-size: 16px;">Education</a></li>
+            <li><a href="index.html#contact" class="h-print" style="font-size: 16px;">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Right: Social Links -->
+        <div style="min-width: 150px;">
+          <h5 class="h-display" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Social Connect</h5>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; padding: 0;">
+            <li><a href="https://github.com/preethu2896" target="_blank" rel="noopener" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💻 GitHub</a></li>
+            <li><a href="https://linkedin.com/in/preethambhandary" target="_blank" rel="noopener" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💼 LinkedIn</a></li>
+            <li><a href="index.html#contact" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">📧 Email</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright note -->
+      <div style="margin-top: 36px; padding-top: 18px; border-top: 1px dashed rgba(21,19,15,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-family: 'Patrick Hand', cursive; font-size: 14px; color: var(--muted);">
+        <span>© 2026 Preetham B. All Rights Reserved.</span>
+        <span class="h-hand" style="font-size: 15px;">made solo · shipped with ❤ from Bangalore</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+
+</html>

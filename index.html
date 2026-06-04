@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Preetham Bhandary — Build Smarter. Automate More. Earn Online.</title>
+  <meta name="description"
+    content="Resources, tools and ideas for solo entrepreneurs. AI, automation, and online business from Preetham Bhandary — YouTube creator &amp; solo founder from Bangalore." />
+  <link rel="canonical" href="index.html" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Preetham Bhandary — Build Smarter. Automate More. Earn Online." />
+  <meta property="og:description"
+    content="Startup ideas, automation templates & 1:1 consulting for solo founders. Real strategies from Preetham Bhandary — 7+ years building online businesses." />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Patrick+Hand&family=Rubik+Mono+One&family=JetBrains+Mono:wght@400;600&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* ===== MY TOOLKIT SECTION ===== */
+    .toolkit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 36px;
+    }
+
+    .toolkit-card {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform .2s ease, box-shadow .2s ease;
+      position: relative;
+    }
+
+    /* Slight card rotation on hover */
+    .toolkit-card:nth-child(even):hover {
+      transform: translate(-3px, -3px) rotate(1.2deg);
+      box-shadow: 5px 5px 0 var(--rule);
+    }
+
+    .toolkit-card:nth-child(odd):hover {
+      transform: translate(-3px, -3px) rotate(-1.2deg);
+      box-shadow: 5px 5px 0 var(--rule);
+    }
+
+    .toolkit-card .tk-category {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 13px;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toolkit-card .tk-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 6px 0;
+    }
+
+    .toolkit-card .tk-list li {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 16px;
+      padding: 4px 10px;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper-2);
+    }
+
+    .toolkit-card .tk-desc {
+      font-family: 'Caveat', cursive;
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.25;
+    }
+
+    /* 6 cards fit perfectly in a 3-column layout, no spans needed */
+
+    /* Sticker / Bottom note styles */
+    .toolkit-bottom {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .toolkit-note {
+      font-family: 'Caveat', cursive;
+      font-size: 24px;
+      max-width: 650px;
+      color: var(--ink);
+      font-style: italic;
+      line-height: 1.25;
+    }
+
+    .sticker-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      border: 2px dashed var(--accent);
+      border-radius: var(--radius);
+      background: rgba(255, 91, 31, 0.05);
+      font-family: 'Patrick Hand', cursive;
+      font-size: 17px;
+      transform: rotate(-1.5deg);
+      transition: transform 0.2s;
+      position: relative;
+    }
+
+    .sticker-badge:hover {
+      transform: rotate(1deg) scale(1.02);
+    }
+
+    .sticker-badge strong {
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+    }
+
+    /* Doodle underline animation */
+    .doodle-underline {
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      transition: stroke-dashoffset 1s ease 0.3s;
+    }
+
+    .reveal.visible .doodle-underline {
+      stroke-dashoffset: 0;
+    }
+
+    @media (max-width: 980px) {
+      .toolkit-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 620px) {
+      .toolkit-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== EXPERIENCE SECTION ===== */
+    .experience-timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 40px auto 0;
+      padding-left: 40px;
+    }
+
+    .timeline-track {
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      border-left: 2px dashed var(--muted);
+      opacity: 0.5;
+    }
+
+    .experience-entry {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .timeline-node {
+      position: absolute;
+      left: -40px;
+      top: 14px;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .node-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--rule);
+      box-shadow: 2px 2px 0 var(--rule);
+    }
+
+    .experience-card {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 30px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .experience-card:hover {
+      transform: translate(-3px, -3px) rotate(0.5deg);
+      box-shadow: 6px 6px 0 var(--rule);
+    }
+
+    .experience-card .card-header {
+      border-bottom: 2px dashed rgba(21, 19, 15, 0.15);
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .exp-badge {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 13px;
+      padding: 2px 10px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      border: 1.5px solid var(--rule);
+      border-radius: 12px 8px 14px 6px / 8px 14px 6px 12px;
+      display: inline-block;
+      transform: rotate(-1.5deg);
+    }
+
+    .exp-date {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .exp-title {
+      font-size: 26px;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .exp-company {
+      font-size: 20px;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    .exp-location {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .exp-overview {
+      font-size: 19px;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 18px;
+    }
+
+    .exp-contributions {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .exp-contributions li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .bullet-tick {
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .bullet-text {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 17px;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    .exp-tools {
+      border-top: 1.5px dashed rgba(21, 19, 15, 0.15);
+      padding-top: 18px;
+    }
+
+    .exp-tools strong {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .exp-tools-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .exp-tools-list span {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 16px;
+      padding: 4px 10px;
+      border: 1.5px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper-2);
+    }
+
+    .experience-bottom {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .experience-note {
+      font-family: 'Caveat', cursive;
+      font-size: 24px;
+      max-width: 650px;
+      color: var(--ink);
+      font-style: italic;
+      line-height: 1.25;
+    }
+
+    @media (max-width: 620px) {
+      .experience-timeline {
+        padding-left: 20px;
+      }
+
+      .timeline-node {
+        left: -20px;
+      }
+
+      .timeline-track {
+        left: -11px;
+      }
+
+      .experience-card {
+        padding: 20px;
+      }
+
+      .exp-title {
+        font-size: 22px;
+      }
+
+      .exp-company {
+        font-size: 18px;
+      }
+    }
+
+    .doodle-arrow {
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .doodle-arrow {
+        display: none;
+      }
+    }
+
+    /* ===== ACHIEVEMENTS SECTION ===== */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 48px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .achievement-card {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 28px;
+      position: relative;
+      transition: transform .2s ease, box-shadow .2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    /* Alternating hover rotations */
+    .achievement-card:nth-child(odd):hover {
+      transform: translate(-3px, -3px) rotate(-1deg);
+      box-shadow: 6px 6px 0 var(--rule);
+    }
+
+    .achievement-card:nth-child(even):hover {
+      transform: translate(-3px, -3px) rotate(1deg);
+      box-shadow: 6px 6px 0 var(--rule);
+    }
+
+    .achievement-card .ach-icon-title {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 14px;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.2;
+    }
+
+    .achievement-card .ach-desc {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 18px;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    /* Hand-drawn timeline/connector arrows */
+    .ach-connector {
+      position: absolute;
+      pointer-events: none;
+      stroke: var(--ink);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      fill: none;
+      opacity: 0.5;
+      z-index: 1;
+    }
+
+    .ach-connector.arrow-1-2 {
+      top: 22%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 30px;
+    }
+
+    .ach-connector.arrow-2-3 {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 80px;
+    }
+
+    .ach-connector.arrow-3-4 {
+      top: 78%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 30px;
+    }
+
+    @media (max-width: 980px) {
+      .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .ach-connector {
+        display: none;
+      }
+    }
+
+    /* ===== EDUCATION SECTION ===== */
+    .education-timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 40px auto 0;
+      padding-left: 40px;
+    }
+
+    .education-entry {
+      position: relative;
+      margin-bottom: 36px;
+    }
+
+    .education-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .education-card {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 28px;
+      position: relative;
+      transition: transform .2s ease, box-shadow .2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    .education-card:hover {
+      transform: translate(-3px, -3px) rotate(0.5deg);
+      box-shadow: 6px 6px 0 var(--rule);
+    }
+
+    .education-card .edu-header {
+      border-bottom: 2px dashed rgba(21, 19, 15, 0.15);
+      padding-bottom: 14px;
+      margin-bottom: 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .education-card .edu-title {
+      font-size: 24px;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .education-card .edu-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .education-card .edu-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .education-card .edu-score {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 17px;
+      color: var(--accent);
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    .education-card .edu-degree {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 19px;
+      color: var(--ink);
+      font-weight: bold;
+    }
+
+    .education-timeline .timeline-track {
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      border-left: 2px dashed var(--muted);
+      opacity: 0.5;
+    }
+
+    .education-timeline .timeline-node {
+      position: absolute;
+      left: -40px;
+      top: 14px;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+    }
+
+    .education-timeline .node-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--rule);
+      box-shadow: 2px 2px 0 var(--rule);
+    }
+
+    @media (max-width: 620px) {
+      .education-timeline {
+        padding-left: 20px;
+      }
+
+      .education-timeline .timeline-node {
+        left: -20px;
+      }
+
+      .education-timeline .timeline-track {
+        left: -11px;
+      }
+
+      .education-card {
+        padding: 20px;
+      }
+
+      .education-card .edu-title {
+        font-size: 20px;
+      }
+
+      .education-card .edu-meta {
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      margin-top: 40px;
+      align-items: start;
+      position: relative;
+    }
+
+    .contact-info-card {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      transition: transform .2s ease, box-shadow .2s ease;
+      z-index: 2;
+    }
+
+    .contact-info-card:hover {
+      transform: translate(-2px, -2px) rotate(-0.5deg);
+      box-shadow: 6px 6px 0 var(--rule);
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .contact-item .contact-label {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 13px;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-item .contact-val {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 21px;
+      color: var(--ink);
+      transition: color .15s;
+    }
+
+    .contact-item .contact-val:hover {
+      color: var(--accent);
+    }
+
+    .contact-form-card {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper-2);
+      padding: 32px;
+      transition: transform .2s ease, box-shadow .2s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-form-card:hover {
+      transform: translate(-2px, -2px) rotate(0.5deg);
+      box-shadow: 6px 6px 0 var(--rule);
+    }
+
+    .contact-form-card form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 18px;
+      color: var(--ink);
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      border: 2px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 10px 14px;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 17px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 3px 3px 0 var(--rule);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-bottom {
+      margin-top: 36px;
+      text-align: center;
+    }
+
+    .contact-status-note {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: var(--ink);
+      display: inline-block;
+      padding: 6px 14px;
+      border: 2px dashed var(--accent);
+      border-radius: var(--radius);
+      transform: rotate(-1deg);
+      background: rgba(255, 91, 31, 0.04);
+    }
+
+    /* Hand-drawn connector arrow from info to form */
+    .contact-connector-arrow {
+      position: absolute;
+      left: 45%;
+      top: 30%;
+      transform: translate(-50%, -50%) rotate(15deg);
+      width: 90px;
+      height: 45px;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .contact-connector-arrow {
+        display: none;
+      }
+
+      .contact-info-card,
+      .contact-form-card {
+        padding: 24px;
+      }
+    }
+
+    footer a {
+      transition: color 0.15s;
+    }
+
+    footer a:hover {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SVG Filters -->
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+    <defs>
+      <filter id="wobble">
+        <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="3" />
+        <feDisplacementMap in="SourceGraphic" scale="2" />
+      </filter>
+      <filter id="wobble-2">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="7" />
+        <feDisplacementMap in="SourceGraphic" scale="3" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation">
+    <div class="wrap nav-wrap">
+      <a href="index.html" class="nav-logo">PREETHAM <span>BHANDARY</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="#toolkit">My Toolkit</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+      <a href="#contact" class="btn primary nav-cta sm">Contact Me →</a>
+      <button class="nav-toggle" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="toggleMenu()">Home</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="projects.html" onclick="toggleMenu()">Projects</a>
+    <a href="#toolkit" onclick="toggleMenu()">My Toolkit</a>
+    <a href="#experience" onclick="toggleMenu()">Experience</a>
+    <a href="#achievements" onclick="toggleMenu()">Achievements</a>
+    <a href="#education" onclick="toggleMenu()">Education</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- ===== SECTION 1: HERO ===== -->
+  <section id="home" class="hero-section">
+    <!-- Faded thumbnail collage backdrop -->
+    <div class="hero-collage" aria-hidden="true">
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+      <div class="thumb">
+        <div class="play-btn"></div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="hero-inner">
+
+        <h1 class="hero-h1 h-display">
+          I'm<br />Preetham<br /><span class="accent-word">Bhandary</span>
+        </h1>
+        <p class="hero-sub h-hand">Building products, exploring ideas, and learning along the way.</p>
+        <div class="hero-ctas">
+          <a href="https://drive.google.com/file/d/1VFrqKhPWohqePllXmfo2TaxyPdVzswUv/view?usp=sharing"
+            class="btn primary" style="font-size:19px;padding:14px 28px">Download Resume <span
+              style="font-size:22px;line-height:1">→</span></a>
+          <a href="projects.html" class="btn" style="font-size:19px;padding:14px 28px">View Projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT (after hero) ===== -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <div class="section-tag">01 — About Me</div>
+      <div class="about-grid reveal">
+        <!-- Avatar placeholder -->
+        <div class="about-photo">
+          <img src="photos/preetham.png" alt="Preetham Bhandary"
+            style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
+        </div>
+        <div class="about-content">
+          <h2 class="h-display">Building the future, <span>One project at a time.</span></h2>
+          <p class="about-bio h-hand">
+            Hi, I'm Preetham B — a Computer Science and Design graduate passionate about Artificial Intelligence and
+            Software Development. I enjoy building intelligent systems that solve real-world problems
+            through automation, machine learning, and modern web technologies.
+          </p>
+          <div class="about-stats">
+            <div class="stat-box"><strong class="h-display">3+</strong><span>Projects</span></div>
+            <div class="stat-box"><strong class="h-display">1</strong><span>Publications</span></div>
+            <div class="stat-box"><strong class="h-display">2026</strong><span>Graduate</span></div>
+          </div>
+          <div class="about-socials">
+            <a href="https://www.linkedin.com/in/preethambhandary" target="_blank" rel="noopener" class="btn primary">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path
+                  d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43c-1.14 0-2.06-.92-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.14-.92 2.06-2.06 2.06zm15.11 13.02h-3.56v-5.6c0-1.34-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.7H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z" />
+              </svg>
+              Linkedin
+            </a>
+            <a href="https://github.com/preethu2896" target="_blank" rel="noopener" class="btn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.43 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.22.694.825.576C20.565 21.795 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+              GitHub
+            </a>
+            <a href="#contact" class="btn">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="1.8" fill="none">
+                <rect x="2" y="4" width="20" height="16" />
+                <path d="M2 4 L12 14 L22 4" />
+              </svg>
+              Email Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2: PRODUCTS ===== -->
+  <section id="products" class="section">
+    <div class="wrap">
+      <div class="section-tag">02 — Projects</div>
+      <div class="section-header reveal">
+        <h2 class="h-display">THINGS I'VE BUILT.</h2>
+      </div>
+      <div class="prod-grid">
+
+        <!-- Card 1: 100 Business Ideas PDF -->
+        <div class="prod-card wobble reveal">
+          <span class="prod-ribbon">Featured Project</span>
+          <div class="prod-img" style="height: 240px;">
+            <img src="photos/autocti.png" alt="AUTOCTI Project"
+              style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
+          </div>
+          <div class="prod-name h-print">AUTOCTI : Automated Cyber Threat Detection Using AutoML</div>
+          <div class="prod-benefit h-hand">FastAPI • React • AutoML</div>
+          <div class="prod-price-row">
+            <a href="https://github.com/preethu2896/AUTOCTI" target="_blank" rel="noopener" class="btn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.43 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.22.694.825.576C20.565 21.795 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+              GitHub
+            </a>
+            <a href="project-autocti.html" class="btn primary sm">View Project <span style="font-size:17px">→</span></a>
+          </div>
+        </div>
+
+        <!-- Card 2: NavMind AI -->
+        <div class="prod-card wobble reveal" style="transition-delay:.08s">
+          <div class="prod-img" style="height: 240px;">
+            <img src="photos/navmind-3-1.png" alt="NavMind AI Project"
+              style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
+          </div>
+          <div class="prod-name h-print">NavMind AI: Traffic Congestion Prediction and Smart Route Recommendation System
+          </div>
+          <div class="prod-benefit h-hand">FastAPI • React • ML</div>
+          <div class="prod-price-row">
+            <a href="https://github.com/preethu2896/Navmind-AI" target="_blank" rel="noopener" class="btn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.43 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.22.694.825.576C20.565 21.795 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+              GitHub
+            </a>
+            <a href="project-navmind.html" class="btn primary sm">View Project <span style="font-size:17px">→</span></a>
+          </div>
+        </div>
+
+        <!-- Card 3: Electra E-Voting System -->
+        <div class="prod-card wobble reveal" style="transition-delay:.16s">
+          <span class="prod-ribbon ink">Best Value</span>
+          <div class="prod-img" style="height: 240px;">
+            <img src="photos/electra-hero.png" alt="Electra E-voting Project"
+              style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
+          </div>
+          <div class="prod-name h-print">Electra - E-voting System</div>
+          <div class="prod-benefit h-hand">Python • Authentication • Voting</div>
+          <div class="prod-price-row">
+            <a href="https://github.com/preethu2896/Electra-E-voting-system" target="_blank" rel="noopener" class="btn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.43 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.22.694.825.576C20.565 21.795 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+              GitHub
+            </a>
+            <a href="project-electra.html" class="btn primary sm">View Project <span style="font-size:17px">→</span></a>
+          </div>
+        </div>
+
+        <!-- Card 4: Inklayer Modern Streetwear Brand -->
+        <div class="prod-card wobble reveal" style="transition-delay:.24s">
+          <div class="prod-img" style="height: 240px;">
+            <img src="photos/inklayer-hero.png" alt="Inklayer Streetwear Brand Project"
+              style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+          </div>
+          <div class="prod-name h-print">Inklayer — Modern Streetwear Brand</div>
+          <div class="prod-benefit h-hand">Branding • E-Commerce • Design</div>
+          <div class="prod-price-row">
+            <a href="https://inklayer-l5qz.vercel.app" target="_blank" rel="noopener" class="btn sm">Website</a>
+            <a href="project-inklayer.html" class="btn primary sm">View Project <span
+                style="font-size:17px">→</span></a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:22px">
+        <a href="projects.html" class="btn ink">See all projects →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3: MY TOOLKIT ===== -->
+  <section id="toolkit" class="section">
+    <div class="wrap">
+      <div class="section-tag">03 — My Toolkit</div>
+      <div class="section-header reveal">
+        <h2 class="h-display">
+          THINGS I'VE<br>
+          <span style="position: relative; display: inline-block;">
+            WORKED WITH.
+            <svg class="doodle-underline" viewBox="0 0 350 20" width="350" height="20" fill="none"
+              stroke="var(--accent)" stroke-width="4" stroke-linecap="round"
+              style="position: absolute; bottom: -8px; left: 0; pointer-events: none;">
+              <path d="M 5, 10 C 100, 15, 250, 5, 345, 12 C 280, 18, 120, 12, 10, 8 C 80, 5, 260, 12, 340, 10" />
+            </svg>
+          </span>
+        </h2>
+        <p class="h-hand" style="font-size:20px;max-width:600px;margin-top:16px;color:var(--muted)">
+          Technologies, tools, and platforms I've explored while building projects, experimenting with ideas, and
+          continuously learning.
+        </p>
+      </div>
+
+      <div class="toolkit-grid">
+        <!-- Card 1: Programming -->
+        <div class="toolkit-card wobble reveal" style="transition-delay: .05s">
+          <div class="tk-category">
+            <span>📌 Programming</span>
+          </div>
+          <ul class="tk-list">
+            <li>Python</li>
+            <li>Java</li>
+            <li>SQL</li>
+          </ul>
+          <p class="tk-desc">
+            The languages I've used throughout my academic journey and project development.
+          </p>
+        </div>
+
+        <!-- Card 2: Web Development -->
+        <div class="toolkit-card wobble reveal" style="transition-delay: .1s">
+          <div class="tk-category">
+            <span>🌐 Web Development</span>
+          </div>
+          <ul class="tk-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>React.js</li>
+          </ul>
+          <p class="tk-desc">
+            Tools used to create responsive and interactive web applications.
+          </p>
+        </div>
+
+        <!-- Card 3: Backend & APIs -->
+        <div class="toolkit-card wobble reveal" style="transition-delay: .15s">
+          <div class="tk-category">
+            <span>⚡ Backend & APIs</span>
+          </div>
+          <ul class="tk-list">
+            <li>FastAPI</li>
+            <li>Flask</li>
+            <li>REST APIs</li>
+          </ul>
+          <p class="tk-desc">
+            Building robust server-side logic and connecting systems via APIs.
+          </p>
+        </div>
+
+        <!-- Card 4: AI & Data Science -->
+        <div class="toolkit-card wobble reveal" style="transition-delay: .2s">
+          <div class="tk-category">
+            <span>🧠 AI & Data Science</span>
+          </div>
+          <ul class="tk-list">
+            <li>Machine Learning</li>
+            <li>Scikit-Learn</li>
+            <li>Pandas</li>
+            <li>NumPy</li>
+          </ul>
+          <p class="tk-desc">
+            Analyzing datasets and implementing intelligence into modern applications.
+          </p>
+        </div>
+
+        <!-- Card 5: Tools & Workflows -->
+        <div class="toolkit-card wobble reveal" style="transition-delay: .25s">
+          <div class="tk-category">
+            <span>🛠️ Tools & Workflows</span>
+          </div>
+          <ul class="tk-list">
+            <li>GitHub</li>
+            <li>VS Code</li>
+            <li>Figma</li>
+          </ul>
+          <p class="tk-desc">
+            The design, development, and version control environment that keeps my projects organized and moving
+            forward.
+          </p>
+        </div>
+
+        <!-- Card 6: AI Tools & Assistants -->
+        <div class="toolkit-card wobble reveal" style="transition-delay: .3s">
+          <div class="tk-category">
+            <span>🤖 AI Tools & Assistants</span>
+          </div>
+          <ul class="tk-list">
+            <li>Claude</li>
+            <li>ChatGPT</li>
+            <li>Antigravity</li>
+          </ul>
+          <p class="tk-desc">
+            Leveraging cutting-edge AI models and agentic coding workflows to write code, design apps, and accelerate
+            builders.
+          </p>
+        </div>
+      </div>
+
+      <div class="toolkit-bottom reveal" style="transition-delay: .3s">
+        <p class="toolkit-note">
+          "Every project teaches me something new. I'm constantly exploring, learning, and improving with every build."
+        </p>
+        <div style="position: relative; display: inline-block;">
+          <!-- SVG Doodle Arrow pointing to the badge -->
+          <svg class="doodle-arrow" viewBox="0 0 100 50" width="80" height="40" fill="none" stroke="var(--ink)"
+            stroke-width="2" stroke-linecap="round"
+            style="position: absolute; left: -90px; top: -15px; transform: rotate(-10deg);">
+            <path d="M 10,10 C 40,5 70,35 85,35 M 70,25 C 80,30 85,35 85,35 C 80,38 75,45 75,45" />
+          </svg>
+          <div class="sticker-badge">
+            <strong>🚀 Currently Exploring:</strong> AI Applications • Product Development • Modern Web Technologies
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 4: EXPERIENCE ===== -->
+  <section id="experience" class="section">
+    <div class="wrap">
+      <div class="section-tag">04 — Experience</div>
+      <div class="section-header reveal">
+        <h2 class="h-display">
+          PLACES I'VE<br>
+          LEARNED,<br>
+          <span style="position: relative; display: inline-block;">
+            BUILT & GROWN.
+            <svg class="doodle-underline" viewBox="0 0 350 20" width="350" height="20" fill="none"
+              stroke="var(--accent)" stroke-width="4" stroke-linecap="round"
+              style="position: absolute; bottom: -8px; left: 0; pointer-events: none;">
+              <path d="M 5, 10 C 100, 15, 250, 5, 345, 12 C 280, 18, 120, 12, 10, 8 C 80, 5, 260, 12, 340, 10" />
+            </svg>
+          </span>
+        </h2>
+        <p class="h-hand" style="font-size:20px;max-width:600px;margin-top:16px;color:var(--muted)">
+          My professional experience and the opportunities that helped me develop practical skills in software
+          development, AI, and problem-solving.
+        </p>
+      </div>
+
+      <div class="experience-timeline reveal" style="transition-delay: .05s">
+        <!-- Timeline Track -->
+        <div class="timeline-track"></div>
+
+        <!-- Experience Entry -->
+        <div class="experience-entry">
+          <!-- Timeline Node -->
+          <div class="timeline-node">
+            <span class="node-dot"></span>
+          </div>
+
+          <!-- Notebook Card -->
+          <div class="experience-card wobble">
+            <div class="card-header">
+              <div class="card-meta">
+                <span class="exp-badge">Internship</span>
+                <span class="exp-date h-mono">February 2026 — May 2026</span>
+              </div>
+              <h3 class="exp-title h-print">AI Engineer Intern</h3>
+              <h4 class="exp-company h-hand">Inventeron Technologies LLP <span class="exp-location">• Remote
+                  Internship</span></h4>
+            </div>
+
+            <div class="card-body">
+              <p class="exp-overview h-hand">
+                Worked on machine learning applications, backend development, and data-driven solutions while gaining
+                hands-on experience in real-world software development workflows.
+              </p>
+
+              <ul class="exp-contributions">
+                <li>
+                  <span class="bullet-tick">✓</span>
+                  <span class="bullet-text">Built and tested machine learning models using Python and
+                    Scikit-Learn</span>
+                </li>
+                <li>
+                  <span class="bullet-tick">✓</span>
+                  <span class="bullet-text">Developed backend APIs using FastAPI</span>
+                </li>
+                <li>
+                  <span class="bullet-tick">✓</span>
+                  <span class="bullet-text">Worked with data preprocessing, cleaning, and feature engineering</span>
+                </li>
+                <li>
+                  <span class="bullet-tick">✓</span>
+                  <span class="bullet-text">Evaluated and improved model performance</span>
+                </li>
+                <li>
+                  <span class="bullet-tick">✓</span>
+                  <span class="bullet-text">Collaborated on real-world AI and software development tasks</span>
+                </li>
+                <li>
+                  <span class="bullet-tick">✓</span>
+                  <span class="bullet-text">Gained practical experience in end-to-end project development</span>
+                </li>
+              </ul>
+
+              <div class="exp-tools"
+                style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
+                <div>
+                  <strong>Tools & Technologies:</strong>
+                  <div class="exp-tools-list">
+                    <span>Python</span>
+                    <span>FastAPI</span>
+                    <span>Scikit-Learn</span>
+                    <span>Pandas</span>
+                    <span>NumPy</span>
+                    <span>GitHub</span>
+                  </div>
+                </div>
+                <a href="photos/certificate.png" target="_blank" class="btn sm primary"
+                  style="margin-top: 10px; transform: rotate(-1.5deg);">View Certificate 📄</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-bottom reveal" style="transition-delay: .2s">
+        <p class="experience-note">
+          "Every experience has helped me strengthen my technical skills, improve problem-solving abilities, and better
+          understand how real-world products are built."
+        </p>
+        <div style="position: relative; display: inline-block;">
+          <!-- SVG Doodle Arrow pointing to the badge -->
+          <svg class="doodle-arrow" viewBox="0 0 100 50" width="80" height="40" fill="none" stroke="var(--ink)"
+            stroke-width="2" stroke-linecap="round"
+            style="position: absolute; left: -90px; top: -15px; transform: rotate(-10deg);">
+            <path d="M 10,10 C 40,5 70,35 85,35 M 70,25 C 80,30 85,35 85,35 C 80,38 75,45 75,45" />
+          </svg>
+          <div class="sticker-badge" style="text-align: left;">
+            <strong>🚀 Looking Forward To:</strong> Software Engineering • AI Applications • Product Development
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 5: ACHIEVEMENTS ===== -->
+  <section id="achievements" class="section">
+    <div class="wrap">
+      <div class="section-tag">05 — Achievements</div>
+      <div class="section-header reveal">
+        <h2 class="h-display">
+          MILESTONES<br>
+          ALONG THE<br>
+          <span style="position: relative; display: inline-block;">
+            WAY.
+            <svg class="doodle-underline" viewBox="0 0 150 20" width="150" height="20" fill="none"
+              stroke="var(--accent)" stroke-width="4" stroke-linecap="round"
+              style="position: absolute; bottom: -8px; left: 0; pointer-events: none;">
+              <path d="M 5, 10 C 50, 15, 100, 5, 145, 12 C 110, 18, 60, 12, 10, 8 C 40, 5, 110, 12, 140, 10" />
+            </svg>
+          </span>
+        </h2>
+        <p class="h-hand" style="font-size:20px;max-width:600px;margin-top:16px;color:var(--muted)">
+          A collection of achievements, research work, certifications, and experiences that have shaped my journey as a
+          developer and builder.
+        </p>
+      </div>
+
+      <div class="achievements-grid">
+        <!-- SVG Connector 1-2 (visible on desktop) -->
+        <svg class="ach-connector arrow-1-2" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 10,15 C 30,5 50,25 80,15 M 70,5 L 80,15 L 68,23" />
+        </svg>
+
+        <!-- SVG Connector 2-3 (visible on desktop) -->
+        <svg class="ach-connector arrow-2-3" viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 80,10 C 90,40 20,40 20,70 M 12,60 L 20,70 L 30,62" />
+        </svg>
+
+        <!-- SVG Connector 3-4 (visible on desktop) -->
+        <svg class="ach-connector arrow-3-4" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 10,15 C 30,5 50,25 80,15 M 70,5 L 80,15 L 68,23" />
+        </svg>
+
+        <!-- Card 1: IEEE Research Publication -->
+        <div class="achievement-card wobble reveal" style="transition-delay: .05s">
+          <div class="ach-icon-title">
+            <span>🏆 IEEE Research Publication</span>
+          </div>
+          <p class="ach-desc">
+            Published a research paper based on AUTOCTI at the IEEE AIDE 2026 Conference, showcasing work in AI-powered
+            cyber threat detection.
+          </p>
+        </div>
+
+        <!-- Card 2: KSCST Selected Project -->
+        <div class="achievement-card wobble reveal" style="transition-delay: .1s">
+          <div class="ach-icon-title">
+            <span>🚀 KSCST Selected Project</span>
+          </div>
+          <p class="ach-desc">
+            AUTOCTI was selected under the Karnataka State Council for Science and Technology (KSCST), recognizing the
+            project's innovation and practical impact.
+          </p>
+        </div>
+
+        <!-- Card 3: Google AI Essentials -->
+        <div class="achievement-card wobble reveal" style="transition-delay: .15s">
+          <div class="ach-icon-title">
+            <span>🤖 Google AI Essentials</span>
+          </div>
+          <p class="ach-desc">
+            Completed Google's AI Essentials program covering Generative AI, prompt engineering, and AI productivity
+            tools.
+          </p>
+        </div>
+
+        <!-- Card 4: PostgreSQL Bootcamp -->
+        <div class="achievement-card wobble reveal" style="transition-delay: .2s">
+          <div class="ach-icon-title">
+            <span>🗄 PostgreSQL Bootcamp</span>
+          </div>
+          <p class="ach-desc">
+            Completed training in database design, SQL queries, joins, indexing, and database optimization.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 6: EDUCATION ===== -->
+  <section id="education" class="section">
+    <div class="wrap">
+      <div class="section-tag">06 — Education</div>
+      <div class="section-header reveal">
+        <h2 class="h-display">
+          WHERE IT<br>
+          ALL<br>
+          <span style="position: relative; display: inline-block;">
+            STARTED.
+            <svg class="doodle-underline" viewBox="0 0 250 20" width="250" height="20" fill="none"
+              stroke="var(--accent)" stroke-width="4" stroke-linecap="round"
+              style="position: absolute; bottom: -8px; left: 0; pointer-events: none;">
+              <path d="M 5, 10 C 70, 15, 170, 5, 245, 12 C 180, 18, 90, 12, 10, 8 C 60, 5, 180, 12, 240, 10" />
+            </svg>
+          </span>
+        </h2>
+        <p class="h-hand" style="font-size:20px;max-width:600px;margin-top:16px;color:var(--muted)">
+          My academic journey and the foundation that helped me explore technology, software development, and artificial
+          intelligence.
+        </p>
+      </div>
+
+      <div class="education-timeline reveal" style="transition-delay: .05s">
+        <!-- Timeline Track -->
+        <div class="timeline-track"></div>
+
+        <!-- Card 1: Canara Engineering College -->
+        <div class="education-entry">
+          <div class="timeline-node">
+            <span class="node-dot"></span>
+          </div>
+          <div class="education-card wobble">
+            <div class="edu-header">
+              <h3 class="edu-title h-print">Canara Engineering College</h3>
+              <div class="edu-meta">
+                <span class="edu-date text-muted">2022 – 2026</span>
+                <span class="edu-score">CGPA: 8.26 / 10</span>
+              </div>
+            </div>
+            <div class="edu-degree">Bachelor of Engineering — Computer Science & Design</div>
+          </div>
+        </div>
+
+        <!-- Card 2: PRN Amratha Bharathi PU College -->
+        <div class="education-entry">
+          <div class="timeline-node">
+            <span class="node-dot"></span>
+          </div>
+          <div class="education-card wobble">
+            <div class="edu-header">
+              <h3 class="edu-title h-print">PRN Amratha Bharathi PU College</h3>
+              <div class="edu-meta">
+                <span class="edu-date text-muted">2020 – 2022</span>
+                <span class="edu-score">Score: 80%</span>
+              </div>
+            </div>
+            <div class="edu-degree">Science Stream</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 7: CONTACT ===== -->
+  <section id="contact" class="section">
+    <div class="wrap">
+      <div class="section-tag">07 — Contact</div>
+      <div class="section-header reveal">
+        <h2 class="h-display">
+          LET'S BUILD<br>
+          SOMETHING<br>
+          <span style="position: relative; display: inline-block;">
+            TOGETHER.
+            <svg class="doodle-underline" viewBox="0 0 250 20" width="250" height="20" fill="none"
+              stroke="var(--accent)" stroke-width="4" stroke-linecap="round"
+              style="position: absolute; bottom: -8px; left: 0; pointer-events: none;">
+              <path d="M 5, 10 C 70, 15, 170, 5, 245, 12 C 180, 18, 90, 12, 10, 8 C 60, 5, 180, 12, 240, 10" />
+            </svg>
+          </span>
+        </h2>
+        <p class="h-hand" style="font-size:20px;max-width:600px;margin-top:16px;color:var(--muted)">
+          Whether it's a project, internship opportunity, collaboration, or simply a conversation about technology, I'd
+          love to hear from you.
+        </p>
+      </div>
+
+      <div class="contact-grid reveal" style="transition-delay: .05s">
+        <!-- Hand-drawn SVG connector arrow (visible on desktop) -->
+        <svg class="contact-connector-arrow" viewBox="0 0 100 50" fill="none" stroke="var(--muted)" stroke-width="2"
+          stroke-linecap="round">
+          <path d="M 10,25 C 40,10 70,40 85,25 M 75,15 L 85,25 L 72,32" />
+        </svg>
+
+        <!-- Left: Contact Info Card -->
+        <div class="contact-info-card wobble">
+          <div class="contact-item">
+            <span class="contact-label">📧 Email</span>
+            <a href="mailto:preethambhandary385@gmail.com" class="contact-val">preethambhandary385@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">💼 LinkedIn</span>
+            <a href="https://linkedin.com/in/preethambhandary" target="_blank" rel="noopener"
+              class="contact-val">linkedin.com/in/preethambhandary</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">💻 GitHub</span>
+            <a href="https://github.com/preethu2896" target="_blank" rel="noopener"
+              class="contact-val">github.com/preethu2896</a>
+          </div>
+        </div>
+
+        <!-- Right: Contact Form Card -->
+        <div class="contact-form-card wobble">
+          <form onsubmit="event.preventDefault(); alert('Message sent successfully!'); this.reset();">
+            <div class="form-group">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" name="email" placeholder="Your email address" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" placeholder="What would you like to build?"
+                required></textarea>
+            </div>
+            <button type="submit" class="btn primary lg"
+              style="justify-content: center; transform: rotate(-1.5deg);">Send Message ✉</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="contact-bottom reveal" style="transition-delay: .2s">
+        <span class="contact-status-note">
+          Currently open to full-time jobs, internships, collaborations, and exciting opportunities.
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="border-top: 2px solid var(--rule); padding: 40px 0 30px; margin-top: 60px; background: var(--paper);">
+    <div class="wrap">
+      <!-- Hand-drawn divider line -->
+      <svg viewBox="0 0 1200 10" width="100%" height="10" fill="none" stroke="var(--rule)" stroke-width="2"
+        stroke-linecap="round" style="margin-bottom: 30px; opacity: 0.8;">
+        <path d="M 5,5 Q 300,8 600,3 T 1195,6" />
+      </svg>
+
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px;">
+        <!-- Left: Logo & Tagline -->
+        <div style="max-width: 320px;">
+          <div class="foot-logo h-display" style="font-size: 20px; margin-bottom: 8px;">PREETHAM <span>BHANDARY</span>
+          </div>
+          <p class="h-hand" style="font-size: 18px; color: var(--muted);">Building the future, one project at a time.
+          </p>
+        </div>
+
+        <!-- Middle: Navigation Links -->
+        <div>
+          <h5 class="h-display"
+            style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Navigation
+          </h5>
+          <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 12px 20px; max-width: 450px; padding: 0;">
+            <li><a href="#about" class="h-print" style="font-size: 16px;">About</a></li>
+            <li><a href="projects.html" class="h-print" style="font-size: 16px;">Projects</a></li>
+            <li><a href="#toolkit" class="h-print" style="font-size: 16px;">My Toolkit</a></li>
+            <li><a href="#experience" class="h-print" style="font-size: 16px;">Experience</a></li>
+            <li><a href="#achievements" class="h-print" style="font-size: 16px;">Achievements</a></li>
+            <li><a href="#education" class="h-print" style="font-size: 16px;">Education</a></li>
+            <li><a href="mailto:preethambhandary385@gmail.com" class="h-print" style="font-size: 16px;">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Right: Social Links -->
+        <div style="min-width: 150px;">
+          <h5 class="h-display"
+            style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Social
+            Connect</h5>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; padding: 0;">
+            <li><a href="https://github.com/preethu2896" target="_blank" rel="noopener" class="h-print"
+                style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💻 GitHub</a></li>
+            <li><a href="https://linkedin.com/in/preethambhandary" target="_blank" rel="noopener" class="h-print"
+                style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💼 LinkedIn</a></li>
+            <li><a href="#contact" class="h-print"
+                style="font-size: 16px; display: flex; align-items: center; gap: 6px;">📧 Email</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright note -->
+      <div
+        style="margin-top: 36px; padding-top: 18px; border-top: 1px dashed rgba(21,19,15,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-family: 'Patrick Hand', cursive; font-size: 14px; color: var(--muted);">
+        <span>© 2026 Preetham B. All Rights Reserved.</span>
+        <span class="h-hand" style="font-size: 15px;">made by Preetham Bhandary</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+
+</html>
