@@ -25,10 +25,20 @@
 
     /* Page entrance animation */
     @keyframes pageIn {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    body { animation: pageIn .4s ease both; }
+
+    body {
+      animation: pageIn .4s ease both;
+    }
 
     /* ---- Hero ---- */
     .case-hero {
@@ -184,10 +194,13 @@
       overflow-x: auto;
       display: flex;
       justify-content: center;
-      box-shadow: inset 2px 2px 6px rgba(0,0,0,.05);
+      box-shadow: inset 2px 2px 6px rgba(0, 0, 0, .05);
     }
 
-    .arch-svg { min-width: 640px; height: auto; }
+    .arch-svg {
+      min-width: 640px;
+      height: auto;
+    }
 
     /* ---- Tech stack ---- */
     .tech-stack-grid {
@@ -197,7 +210,9 @@
       margin-top: 28px;
     }
 
-    .stack-box { padding: 20px; }
+    .stack-box {
+      padding: 20px;
+    }
 
     .stack-box h4 {
       font-family: 'Rubik Mono One', sans-serif;
@@ -220,7 +235,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      border-bottom: 1px dashed rgba(21,19,15,.1);
+      border-bottom: 1px dashed rgba(21, 19, 15, .1);
       padding-bottom: 6px;
     }
 
@@ -278,7 +293,10 @@
     }
 
     /* SVG placeholders for gallery screens */
-    .gallery-visual svg { width: 100%; height: 100%; }
+    .gallery-visual svg {
+      width: 100%;
+      height: 100%;
+    }
 
     .gallery-title {
       font-family: 'Patrick Hand', cursive;
@@ -364,7 +382,9 @@
       transition: transform .15s ease;
     }
 
-    .enhancement-box:hover { transform: translate(-2px, -2px); }
+    .enhancement-box:hover {
+      transform: translate(-2px, -2px);
+    }
 
     .enhancement-box .enh-icon {
       font-size: 28px;
@@ -403,7 +423,11 @@
       box-shadow: 3px 3px 0 var(--rule);
     }
 
-    .result-stat .rs-icon { font-size: 26px; display: block; margin-bottom: 6px; }
+    .result-stat .rs-icon {
+      font-size: 26px;
+      display: block;
+      margin-bottom: 6px;
+    }
 
     .result-stat h4 {
       font-family: 'Rubik Mono One', sans-serif;
@@ -494,8 +518,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(250,247,240,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(250,247,240,.04) 1px, transparent 1px);
+        linear-gradient(rgba(250, 247, 240, .04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(250, 247, 240, .04) 1px, transparent 1px);
       background-size: 24px 24px;
       pointer-events: none;
     }
@@ -539,9 +563,19 @@
     }
 
     /* ---- Scrollbar ---- */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: var(--paper-2); }
-    ::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--paper-2);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--rule);
+      border-radius: 3px;
+    }
 
     /* ---- ROADMAP list (reusing NavMind pattern) ---- */
     .roadmap-list {
@@ -595,40 +629,104 @@
 
     /* ---- RESPONSIVE ---- */
     @media (max-width: 1024px) {
-      .features-grid     { grid-template-columns: repeat(2, 1fr); }
-      .tech-stack-grid   { grid-template-columns: repeat(2, 1fr); }
-      .gallery-grid      { grid-template-columns: repeat(2, 1fr); }
-      .enhancements-grid { grid-template-columns: repeat(3, 1fr); }
-      .results-grid      { grid-template-columns: repeat(3, 1fr); }
-      .roadmap-list      { grid-template-columns: repeat(3, 1fr); }
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tech-stack-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .enhancements-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .results-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .roadmap-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
-      .two-col-grid  { grid-template-columns: 1fr; gap: 32px; }
-      .case-meta     { grid-template-columns: 1fr; gap: 24px; }
-      .timeline-rail { flex-wrap: wrap; gap: 20px; }
-      .timeline-rail::before { display: none; }
-      .enhancements-grid { grid-template-columns: repeat(2, 1fr); }
-      .results-grid  { grid-template-columns: repeat(2, 1fr); }
-      .roadmap-list  { grid-template-columns: repeat(2, 1fr); }
+      .two-col-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .case-meta {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .timeline-rail {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .timeline-rail::before {
+        display: none;
+      }
+
+      .enhancements-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .roadmap-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 620px) {
-      .features-grid { grid-template-columns: 1fr; }
-      .gallery-grid  { grid-template-columns: 1fr; }
-      .enhancements-grid { grid-template-columns: 1fr; }
-      .results-grid  { grid-template-columns: 1fr 1fr; }
-      .roadmap-list  { grid-template-columns: 1fr 1fr; }
-      .cta-box       { padding: 36px 20px; }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .enhancements-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .roadmap-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta-box {
+        padding: 36px 20px;
+      }
     }
 
     @media (max-width: 480px) {
-      .results-grid  { grid-template-columns: 1fr; }
-      .roadmap-list  { grid-template-columns: 1fr; }
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .roadmap-list {
+        grid-template-columns: 1fr;
+      }
     }
+
     footer a {
       transition: color 0.15s;
     }
+
     footer a:hover {
       color: var(--accent) !important;
     }
@@ -682,7 +780,7 @@
   <!-- ===== HERO ===== -->
   <header class="case-hero">
     <div class="wrap">
-      <a href="projects.html" class="btn sm" style="margin-bottom:24px">← Back to Projects</a>
+      <a href="index.html" class="btn sm" style="margin-bottom:24px">← Back to Projects</a>
       <div class="section-tag">Case Study — Secure Electronic Voting System</div>
 
       <!-- Hero Banner -->
@@ -883,8 +981,7 @@
           <text x="60" y="122" font-family="'Caveat',cursive" font-size="12" text-anchor="middle"
             fill="#8a8678">Institution User</text>
 
-          <line x1="110" y1="110" x2="142" y2="110" stroke="#15130f" stroke-width="2"
-            marker-end="url(#arrowE)" />
+          <line x1="110" y1="110" x2="142" y2="110" stroke="#15130f" stroke-width="2" marker-end="url(#arrowE)" />
 
           <!-- Node 2: Auth -->
           <rect x="150" y="60" width="120" height="100" rx="6" fill="#f3eee2" stroke="#15130f" stroke-width="2.5" />
@@ -895,8 +992,7 @@
           <text x="210" y="128" font-family="'JetBrains Mono',monospace" font-size="9" text-anchor="middle"
             fill="#ff5b1f">Session Control</text>
 
-          <line x1="270" y1="110" x2="302" y2="110" stroke="#15130f" stroke-width="2"
-            marker-end="url(#arrowE)" />
+          <line x1="270" y1="110" x2="302" y2="110" stroke="#15130f" stroke-width="2" marker-end="url(#arrowE)" />
 
           <!-- Node 3: Voting Portal -->
           <rect x="310" y="60" width="120" height="100" rx="6" fill="#faf7f0" stroke="#15130f" stroke-width="2.5" />
@@ -907,26 +1003,24 @@
           <text x="370" y="128" font-family="'JetBrains Mono',monospace" font-size="9" text-anchor="middle"
             fill="#ff5b1f">One-Vote Lock</text>
 
-          <line x1="430" y1="110" x2="462" y2="110" stroke="#15130f" stroke-width="2"
-            marker-end="url(#arrowE)" />
+          <line x1="430" y1="110" x2="462" y2="110" stroke="#15130f" stroke-width="2" marker-end="url(#arrowE)" />
 
           <!-- Node 4: Vote Storage -->
           <rect x="470" y="70" width="110" height="80" rx="6" fill="#faf7f0" stroke="#15130f" stroke-width="2.5" />
           <text x="525" y="104" font-family="'Patrick Hand',cursive" font-size="14" font-weight="bold"
             text-anchor="middle" fill="#15130f">Vote Storage</text>
-          <text x="525" y="121" font-family="'Caveat',cursive" font-size="12" text-anchor="middle"
-            fill="#8a8678">Secure DB</text>
+          <text x="525" y="121" font-family="'Caveat',cursive" font-size="12" text-anchor="middle" fill="#8a8678">Secure
+            DB</text>
 
-          <line x1="580" y1="110" x2="612" y2="110" stroke="#15130f" stroke-width="2"
-            marker-end="url(#arrowE)" />
+          <line x1="580" y1="110" x2="612" y2="110" stroke="#15130f" stroke-width="2" marker-end="url(#arrowE)" />
 
           <!-- Node 5: Results -->
-          <rect x="620" y="60" width="130" height="100" rx="6" fill="#ff5b1f" fill-opacity="0.15"
-            stroke="#15130f" stroke-width="2.5" />
+          <rect x="620" y="60" width="130" height="100" rx="6" fill="#ff5b1f" fill-opacity="0.15" stroke="#15130f"
+            stroke-width="2.5" />
           <text x="685" y="94" font-family="'Patrick Hand',cursive" font-size="14" font-weight="bold"
             text-anchor="middle" fill="#15130f">Result Engine</text>
-          <text x="685" y="111" font-family="'Caveat',cursive" font-size="12" text-anchor="middle"
-            fill="#8a8678">Auto Tally</text>
+          <text x="685" y="111" font-family="'Caveat',cursive" font-size="12" text-anchor="middle" fill="#8a8678">Auto
+            Tally</text>
           <text x="685" y="128" font-family="'JetBrains Mono',monospace" font-size="9" text-anchor="middle"
             fill="#ff5b1f">Election Dashboard</text>
 
@@ -1016,59 +1110,54 @@
           <rect x="5" y="25" width="110" height="55" rx="4" fill="#faf7f0" stroke="#15130f" stroke-width="2" />
           <text x="60" y="50" font-family="'Patrick Hand',cursive" font-size="13" font-weight="bold"
             text-anchor="middle">User Login</text>
-          <text x="60" y="66" font-family="'Caveat',cursive" font-size="11" text-anchor="middle"
-            fill="#8a8678">Enter credentials</text>
+          <text x="60" y="66" font-family="'Caveat',cursive" font-size="11" text-anchor="middle" fill="#8a8678">Enter
+            credentials</text>
 
-          <line x1="115" y1="52" x2="148" y2="52" stroke="#15130f" stroke-width="1.5"
-            marker-end="url(#arrowW)" />
+          <line x1="115" y1="52" x2="148" y2="52" stroke="#15130f" stroke-width="1.5" marker-end="url(#arrowW)" />
 
           <!-- Step 2 -->
           <rect x="155" y="25" width="110" height="55" rx="4" fill="#faf7f0" stroke="#15130f" stroke-width="2" />
           <text x="210" y="50" font-family="'Patrick Hand',cursive" font-size="13" font-weight="bold"
             text-anchor="middle">Voter Verify</text>
-          <text x="210" y="66" font-family="'Caveat',cursive" font-size="11" text-anchor="middle"
-            fill="#8a8678">Auth check</text>
+          <text x="210" y="66" font-family="'Caveat',cursive" font-size="11" text-anchor="middle" fill="#8a8678">Auth
+            check</text>
 
-          <line x1="265" y1="52" x2="298" y2="52" stroke="#15130f" stroke-width="1.5"
-            marker-end="url(#arrowW)" />
+          <line x1="265" y1="52" x2="298" y2="52" stroke="#15130f" stroke-width="1.5" marker-end="url(#arrowW)" />
 
           <!-- Step 3 -->
           <rect x="305" y="25" width="110" height="55" rx="4" fill="#faf7f0" stroke="#15130f" stroke-width="2" />
           <text x="360" y="50" font-family="'Patrick Hand',cursive" font-size="13" font-weight="bold"
             text-anchor="middle">Vote Casting</text>
-          <text x="360" y="66" font-family="'Caveat',cursive" font-size="11" text-anchor="middle"
-            fill="#8a8678">Select candidate</text>
+          <text x="360" y="66" font-family="'Caveat',cursive" font-size="11" text-anchor="middle" fill="#8a8678">Select
+            candidate</text>
 
-          <line x1="415" y1="52" x2="448" y2="52" stroke="#15130f" stroke-width="1.5"
-            marker-end="url(#arrowW)" />
+          <line x1="415" y1="52" x2="448" y2="52" stroke="#15130f" stroke-width="1.5" marker-end="url(#arrowW)" />
 
           <!-- Step 4 -->
           <rect x="455" y="25" width="110" height="55" rx="4" fill="#faf7f0" stroke="#15130f" stroke-width="2" />
           <text x="510" y="50" font-family="'Patrick Hand',cursive" font-size="12" font-weight="bold"
             text-anchor="middle">Secure Storage</text>
-          <text x="510" y="66" font-family="'Caveat',cursive" font-size="11" text-anchor="middle"
-            fill="#8a8678">Save to DB</text>
+          <text x="510" y="66" font-family="'Caveat',cursive" font-size="11" text-anchor="middle" fill="#8a8678">Save to
+            DB</text>
 
-          <line x1="565" y1="52" x2="598" y2="52" stroke="#15130f" stroke-width="1.5"
-            marker-end="url(#arrowW)" />
+          <line x1="565" y1="52" x2="598" y2="52" stroke="#15130f" stroke-width="1.5" marker-end="url(#arrowW)" />
 
           <!-- Step 5 -->
           <rect x="605" y="25" width="110" height="55" rx="4" fill="#faf7f0" stroke="#15130f" stroke-width="2" />
           <text x="660" y="50" font-family="'Patrick Hand',cursive" font-size="13" font-weight="bold"
             text-anchor="middle">Vote Counting</text>
-          <text x="660" y="66" font-family="'Caveat',cursive" font-size="11" text-anchor="middle"
-            fill="#8a8678">Auto tally</text>
+          <text x="660" y="66" font-family="'Caveat',cursive" font-size="11" text-anchor="middle" fill="#8a8678">Auto
+            tally</text>
 
-          <line x1="715" y1="52" x2="748" y2="52" stroke="#15130f" stroke-width="1.5"
-            marker-end="url(#arrowW)" />
+          <line x1="715" y1="52" x2="748" y2="52" stroke="#15130f" stroke-width="1.5" marker-end="url(#arrowW)" />
 
           <!-- Step 6 -->
-          <rect x="755" y="20" width="100" height="65" rx="4" fill="#ff5b1f" fill-opacity=".15"
-            stroke="#15130f" stroke-width="2" />
+          <rect x="755" y="20" width="100" height="65" rx="4" fill="#ff5b1f" fill-opacity=".15" stroke="#15130f"
+            stroke-width="2" />
           <text x="805" y="49" font-family="'Patrick Hand',cursive" font-size="13" font-weight="bold"
             text-anchor="middle">Result Gen.</text>
-          <text x="805" y="65" font-family="'Caveat',cursive" font-size="11" text-anchor="middle"
-            fill="#ff5b1f">Winner declared</text>
+          <text x="805" y="65" font-family="'Caveat',cursive" font-size="11" text-anchor="middle" fill="#ff5b1f">Winner
+            declared</text>
         </svg>
       </div>
     </div>
@@ -1092,7 +1181,8 @@
               style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease" />
           </div>
           <div class="gallery-title">Landing Page</div>
-          <div class="gallery-desc">The Electra home screen welcoming voters and providing navigation to login or register.</div>
+          <div class="gallery-desc">The Electra home screen welcoming voters and providing navigation to login or
+            register.</div>
         </div>
 
         <!-- Screen 2: Registration -->
@@ -1103,7 +1193,8 @@
               style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease" />
           </div>
           <div class="gallery-title">Registration Page</div>
-          <div class="gallery-desc">Voter self-registration form with credential setup before being authorised to cast a ballot.</div>
+          <div class="gallery-desc">Voter self-registration form with credential setup before being authorised to cast a
+            ballot.</div>
         </div>
 
         <!-- Screen 3: Login Page -->
@@ -1114,7 +1205,8 @@
               style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease" />
           </div>
           <div class="gallery-title">Login Page</div>
-          <div class="gallery-desc">Secure login screen with session-based authentication ensuring only verified voters access the ballot.</div>
+          <div class="gallery-desc">Secure login screen with session-based authentication ensuring only verified voters
+            access the ballot.</div>
         </div>
 
         <!-- Screen 4: Voting Interface -->
@@ -1125,7 +1217,8 @@
               style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease" />
           </div>
           <div class="gallery-title">Ballot Interface</div>
-          <div class="gallery-desc">Clean digital ballot listing all candidates with one-vote enforcement and a confirm submission button.</div>
+          <div class="gallery-desc">Clean digital ballot listing all candidates with one-vote enforcement and a confirm
+            submission button.</div>
         </div>
 
         <!-- Screen 5: Results -->
@@ -1136,7 +1229,8 @@
               style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease" />
           </div>
           <div class="gallery-title">Election Results Page</div>
-          <div class="gallery-desc">Automatically generated results page displaying vote tallies, winner declaration, and final percentages.</div>
+          <div class="gallery-desc">Automatically generated results page displaying vote tallies, winner declaration,
+            and final percentages.</div>
         </div>
 
         <!-- Screen 6: Database -->
@@ -1147,7 +1241,8 @@
               style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease" />
           </div>
           <div class="gallery-title">MySQL Database</div>
-          <div class="gallery-desc">phpMyAdmin view of the MySQL database storing voters, candidates, ballots, and election records securely.</div>
+          <div class="gallery-desc">phpMyAdmin view of the MySQL database storing voters, candidates, ballots, and
+            election records securely.</div>
         </div>
       </div>
     </div>
@@ -1168,35 +1263,40 @@
               <div class="challenge-num">01</div>
               <div>
                 <h4>Designing a Secure Voting Process</h4>
-                <p>Ensuring the entire vote lifecycle — from casting to storage — was resistant to tampering and unauthorized access.</p>
+                <p>Ensuring the entire vote lifecycle — from casting to storage — was resistant to tampering and
+                  unauthorized access.</p>
               </div>
             </div>
             <div class="challenge-item">
               <div class="challenge-num">02</div>
               <div>
                 <h4>Preventing Duplicate Voting</h4>
-                <p>Implementing reliable one-vote-per-user enforcement at the system level to maintain election integrity.</p>
+                <p>Implementing reliable one-vote-per-user enforcement at the system level to maintain election
+                  integrity.</p>
               </div>
             </div>
             <div class="challenge-item">
               <div class="challenge-num">03</div>
               <div>
                 <h4>Managing Election Data</h4>
-                <p>Structuring vote records so they remain auditable and accurate without exposing individual voter privacy.</p>
+                <p>Structuring vote records so they remain auditable and accurate without exposing individual voter
+                  privacy.</p>
               </div>
             </div>
             <div class="challenge-item">
               <div class="challenge-num">04</div>
               <div>
                 <h4>Creating an Intuitive UX</h4>
-                <p>Designing an interface simple enough for all users regardless of technical ability, with zero voting errors.</p>
+                <p>Designing an interface simple enough for all users regardless of technical ability, with zero voting
+                  errors.</p>
               </div>
             </div>
             <div class="challenge-item">
               <div class="challenge-num">05</div>
               <div>
                 <h4>Authentication Workflow Design</h4>
-                <p>Understanding and implementing secure session management to ensure only verified voters access the ballot.</p>
+                <p>Understanding and implementing secure session management to ensure only verified voters access the
+                  ballot.</p>
               </div>
             </div>
           </div>
@@ -1330,7 +1430,8 @@
   <section class="wrap">
     <div class="cta-box wobble reveal">
       <h2>Interested in this project?</h2>
-      <p class="h-hand">Explore the source code on GitHub, see it in action, or reach out to discuss secure voting systems.</p>
+      <p class="h-hand">Explore the source code on GitHub, see it in action, or reach out to discuss secure voting
+        systems.</p>
 
       <div class="cta-buttons">
         <a href="https://github.com/preethu2896/Electra-E-voting-system" target="_blank" rel="noopener"
@@ -1342,8 +1443,8 @@
           View GitHub
         </a>
         <a href="index.html#contact"
-          style="background:rgba(243,238,226,.12);color:var(--paper);border-color:rgba(243,238,226,.3)"
-          class="btn" id="ctaContactBtn">
+          style="background:rgba(243,238,226,.12);color:var(--paper);border-color:rgba(243,238,226,.3)" class="btn"
+          id="ctaContactBtn">
           Contact Me
         </a>
         <a href="index.html#products" class="btn" id="ctaExploreBtn">
@@ -1357,20 +1458,25 @@
   <footer style="border-top: 2px solid var(--rule); padding: 40px 0 30px; margin-top: 60px; background: var(--paper);">
     <div class="wrap">
       <!-- Hand-drawn divider line -->
-      <svg viewBox="0 0 1200 10" width="100%" height="10" fill="none" stroke="var(--rule)" stroke-width="2" stroke-linecap="round" style="margin-bottom: 30px; opacity: 0.8;">
+      <svg viewBox="0 0 1200 10" width="100%" height="10" fill="none" stroke="var(--rule)" stroke-width="2"
+        stroke-linecap="round" style="margin-bottom: 30px; opacity: 0.8;">
         <path d="M 5,5 Q 300,8 600,3 T 1195,6" />
       </svg>
 
       <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px;">
         <!-- Left: Logo & Tagline -->
         <div style="max-width: 320px;">
-          <div class="foot-logo h-display" style="font-size: 20px; margin-bottom: 8px;">PREETHAM <span>BHANDARY</span></div>
-          <p class="h-hand" style="font-size: 18px; color: var(--muted);">Building the future, one project at a time.</p>
+          <div class="foot-logo h-display" style="font-size: 20px; margin-bottom: 8px;">PREETHAM <span>BHANDARY</span>
+          </div>
+          <p class="h-hand" style="font-size: 18px; color: var(--muted);">Building the future, one project at a time.
+          </p>
         </div>
 
         <!-- Middle: Navigation Links -->
         <div>
-          <h5 class="h-display" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Navigation</h5>
+          <h5 class="h-display"
+            style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Navigation
+          </h5>
           <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 12px 20px; max-width: 450px; padding: 0;">
             <li><a href="index.html#about" class="h-print" style="font-size: 16px;">About</a></li>
             <li><a href="projects.html" class="h-print" style="font-size: 16px;">Projects</a></li>
@@ -1384,17 +1490,23 @@
 
         <!-- Right: Social Links -->
         <div style="min-width: 150px;">
-          <h5 class="h-display" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Social Connect</h5>
+          <h5 class="h-display"
+            style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;">Social
+            Connect</h5>
           <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; padding: 0;">
-            <li><a href="https://github.com/preethu2896" target="_blank" rel="noopener" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💻 GitHub</a></li>
-            <li><a href="https://linkedin.com/in/preethambhandary" target="_blank" rel="noopener" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💼 LinkedIn</a></li>
-            <li><a href="index.html#contact" class="h-print" style="font-size: 16px; display: flex; align-items: center; gap: 6px;">📧 Email</a></li>
+            <li><a href="https://github.com/preethu2896" target="_blank" rel="noopener" class="h-print"
+                style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💻 GitHub</a></li>
+            <li><a href="https://linkedin.com/in/preethambhandary" target="_blank" rel="noopener" class="h-print"
+                style="font-size: 16px; display: flex; align-items: center; gap: 6px;">💼 LinkedIn</a></li>
+            <li><a href="index.html#contact" class="h-print"
+                style="font-size: 16px; display: flex; align-items: center; gap: 6px;">📧 Email</a></li>
           </ul>
         </div>
       </div>
 
       <!-- Copyright note -->
-      <div style="margin-top: 36px; padding-top: 18px; border-top: 1px dashed rgba(21,19,15,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-family: 'Patrick Hand', cursive; font-size: 14px; color: var(--muted);">
+      <div
+        style="margin-top: 36px; padding-top: 18px; border-top: 1px dashed rgba(21,19,15,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-family: 'Patrick Hand', cursive; font-size: 14px; color: var(--muted);">
         <span>© 2026 Preetham B. All Rights Reserved.</span>
         <span class="h-hand" style="font-size: 15px;">made by Preetham Bhandary · shipped with ❤ from Bangalore</span>
       </div>

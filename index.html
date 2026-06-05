@@ -775,6 +775,46 @@
     footer a:hover {
       color: var(--accent) !important;
     }
+
+    /* ===== CONTACT FORM STATUS NOTIFICATIONS ===== */
+    .contact-status-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      min-height: 280px;
+      animation: statusFadeIn 0.3s ease both;
+    }
+
+    .contact-status-card .status-title {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .contact-status-card .status-title.success {
+      color: var(--accent);
+    }
+
+    .contact-status-card .status-title.failure {
+      color: var(--ink);
+    }
+
+    .contact-status-card .status-desc {
+      font-family: 'Caveat', cursive;
+      font-size: 24px;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    @keyframes statusFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
   </style>
 </head>
 
@@ -1515,14 +1555,14 @@
 
         <!-- Right: Contact Form Card -->
         <div class="contact-form-card wobble">
-          <form onsubmit="event.preventDefault(); alert('Message sent successfully!'); this.reset();">
+          <form id="contact-form">
             <div class="form-group">
               <label for="contact-name">Name</label>
-              <input type="text" id="contact-name" name="name" placeholder="Your name" required>
+              <input type="text" id="contact-name" name="from_name" placeholder="Your name" required>
             </div>
             <div class="form-group">
               <label for="contact-email">Email</label>
-              <input type="email" id="contact-email" name="email" placeholder="Your email address" required>
+              <input type="email" id="contact-email" name="from_email" placeholder="Your email address" required>
             </div>
             <div class="form-group">
               <label for="contact-message">Message</label>
@@ -1532,6 +1572,24 @@
             <button type="submit" class="btn primary lg"
               style="justify-content: center; transform: rotate(-1.5deg);">Send Message ✉</button>
           </form>
+
+          <!-- Success Notification (Hidden by default) -->
+          <div id="contact-success" class="contact-status-card" style="display: none;">
+            <div class="status-title success">✓ MESSAGE SENT</div>
+            <div class="status-desc">
+              Thanks for reaching out.<br>
+              I'll get back to you soon.
+            </div>
+          </div>
+
+          <!-- Failure Notification (Hidden by default) -->
+          <div id="contact-failure" class="contact-status-card" style="display: none;">
+            <div class="status-title failure">✗ MESSAGE FAILED</div>
+            <div class="status-desc">
+              Please try again later.
+            </div>
+            <button type="button" class="btn primary sm" onclick="resetContactForm()" style="margin-top: 20px;">Try Again</button>
+          </div>
         </div>
       </div>
 
@@ -1602,7 +1660,57 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="shared.js"></script>
+  <script>
+    (function() {
+      emailjs.init({
+        publicKey: "epCihmUmU6XpMdG9m",
+      });
+    })();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+          event.preventDefault();
+
+          const form = this;
+          const submitBtn = form.querySelector('button[type="submit"]');
+          const originalBtnText = submitBtn.innerHTML;
+
+          // Disable button and show sending feedback
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = 'Sending... ✉';
+
+          emailjs.sendForm('service_0682i56', 'template_tnd18w6', form)
+            .then(function() {
+              form.reset();
+              form.style.display = 'none';
+              document.getElementById('contact-success').style.display = 'flex';
+            })
+            .catch(function(error) {
+              console.error('EmailJS error:', error);
+              form.style.display = 'none';
+              document.getElementById('contact-failure').style.display = 'flex';
+            })
+            .finally(function() {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalBtnText;
+            });
+        });
+      }
+    });
+
+    function resetContactForm() {
+      const form = document.getElementById('contact-form');
+      if (form) {
+        document.getElementById('contact-failure').style.display = 'none';
+        document.getElementById('contact-success').style.display = 'none';
+        form.style.display = '';
+      }
+    }
+  </script>
 </body>
 
 </html>
