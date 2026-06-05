@@ -812,8 +812,15 @@
     }
 
     @keyframes statusFadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
   </style>
 </head>
@@ -1588,7 +1595,8 @@
             <div class="status-desc">
               Please try again later.
             </div>
-            <button type="button" class="btn primary sm" onclick="resetContactForm()" style="margin-top: 20px;">Try Again</button>
+            <button type="button" class="btn primary sm" onclick="resetContactForm()" style="margin-top: 20px;">Try
+              Again</button>
           </div>
         </div>
       </div>
@@ -1663,7 +1671,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="shared.js"></script>
   <script>
-    (function() {
+    (function () {
       emailjs.init({
         publicKey: "epCihmUmU6XpMdG9m",
       });
@@ -1672,7 +1680,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       const contactForm = document.getElementById('contact-form');
       if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
+        contactForm.addEventListener('submit', function (event) {
           event.preventDefault();
 
           const form = this;
@@ -1684,17 +1692,17 @@
           submitBtn.innerHTML = 'Sending... ✉';
 
           emailjs.sendForm('service_0682i56', 'template_tnd18w6', form)
-            .then(function() {
+            .then(function () {
               form.reset();
               form.style.display = 'none';
               document.getElementById('contact-success').style.display = 'flex';
             })
-            .catch(function(error) {
+            .catch(function (error) {
               console.error('EmailJS error:', error);
               form.style.display = 'none';
               document.getElementById('contact-failure').style.display = 'flex';
             })
-            .finally(function() {
+            .finally(function () {
               submitBtn.disabled = false;
               submitBtn.innerHTML = originalBtnText;
             });
