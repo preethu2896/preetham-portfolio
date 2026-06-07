@@ -735,6 +735,8 @@ footer { border-top: 2px solid var(--rule); padding-top: 10px; }
   border: 2.5px solid var(--rule);
   font-size: 17px;
   line-height: 1.35;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .chat-message.user .message-content {
