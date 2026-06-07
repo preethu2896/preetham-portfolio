@@ -735,6 +735,7 @@ footer { border-top: 2px solid var(--rule); padding-top: 10px; }
   border: 2.5px solid var(--rule);
   font-size: 17px;
   line-height: 1.35;
+  /* Prevent long uninterrupted text strings (like URLs) from overflowing the chat bubble container */
   overflow-wrap: break-word;
   word-break: break-word;
 }
