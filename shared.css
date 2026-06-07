@@ -740,6 +740,28 @@ footer { border-top: 2px solid var(--rule); padding-top: 10px; }
   word-break: break-word;
 }
 
+.chat-message .message-content a.chat-link {
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.15s ease;
+}
+
+.chat-message.assistant .message-content a.chat-link {
+  color: var(--accent);
+}
+
+.chat-message.assistant .message-content a.chat-link:hover {
+  color: var(--ink);
+}
+
+.chat-message.user .message-content a.chat-link {
+  color: var(--accent-ink);
+}
+
+.chat-message.user .message-content a.chat-link:hover {
+  opacity: 0.8;
+}
+
 .chat-message.user .message-content {
   background: var(--accent);
   color: var(--accent-ink);

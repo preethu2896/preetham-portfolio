@@ -243,6 +243,8 @@ window.addEventListener('DOMContentLoaded', () => {
     function formatMarkdown(text) {
       let formatted = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
       formatted = formatted.replace(/^\s*[\*\-]\s+(.*?)$/gm, '• $1');
+      // Support markdown links [Text](URL)
+      formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" class="chat-link">$1</a>');
       formatted = formatted.replace(/\n\n/g, '<div style="margin-bottom: 8px;"></div>');
       formatted = formatted.replace(/\n/g, '<br/>');
       return formatted;
