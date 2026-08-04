@@ -4,7 +4,7 @@
 
 ### *Build Smarter. Automate More. Earn Online.*
 
-[![Live Portfolio](https://img.shields.io/badge/Live_Demo-Portfolio-FF5B1F?style=for-the-badge&logo=vercel&logoColor=white)](https://preetham-portfolio.vercel.app)
+[![Live Portfolio](https://img.shields.io/badge/Live_Demo-Portfolio-FF5B1F?style=for-the-badge&logo=vercel&logoColor=white)](https://preetham-portfolio-five.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-black.svg?style=for-the-badge)](LICENSE)
 [![GitHub Profile](https://img.shields.io/badge/GitHub-preethu2896-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/preethu2896)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Preetham_Bhandary-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/preethambhandary)
@@ -151,7 +151,7 @@ This portfolio is configured for 1-click continuous deployment on **Vercel**.
 
 ## 📬 Contact & Connect
 
-- **Portfolio**: [preetham-portfolio.vercel.app](https://preetham-portfolio.vercel.app)
+- **Portfolio**: [preetham-portfolio-five.vercel.app](https://preetham-portfolio-five.vercel.app/)
 - **LinkedIn**: [Preetham Bhandary](https://linkedin.com/in/preethambhandary)
 - **GitHub**: [@preethu2896](https://github.com/preethu2896)
 - **Education**: Canara Engineering College — B.E. in Computer Science & Design (2022–2026)
